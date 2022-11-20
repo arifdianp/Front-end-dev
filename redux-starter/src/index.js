@@ -43,24 +43,25 @@ let updated = published(bk);
 console.log(bk);
 console.log(updated);
 
+///////////////////////////////////////////////////////////////////////////////////////////////
 //create a redux import store
-import store from "./store";
-import {ADD, REMOVE, SOLVED} from "./actionCreator";
+import store from "./store/store";
+import * as actions from "./store/bugs";
 
 const unsubscribe = store.subscribe(() => {
   console.log("store has been changed!", store.getState());
 });
 
 // add action
-store.dispatch(ADD("the first ever bug"));
+store.dispatch(actions.ADD({description:"the first ever bug"}));
 
 // to disable notification on console uncomment unsubscribe
 //unsubscribe();
 
 //solved action
-store.dispatch(SOLVED(1));
+store.dispatch(actions.SOLVED({id:1}));
 
 //remove action
-store.dispatch(REMOVE());
+store.dispatch(actions.REMOVE({id:1}));
 
 console.log(store.getState());
