@@ -19,8 +19,8 @@ const toLowerCase = str => str.toLowerCase();
 
 //immutable.js tutorial
 let book = Map({title: "harrypotter"});
-console.log(book.get("title"));
-console.log(book.toJS());
+//console.log(book.get("title"));
+//console.log(book.toJS());
 
 function publish(book)
 {
@@ -28,7 +28,7 @@ function publish(book)
 }
 //needs to reassign book since book map cannot be mutated or changed inside
 book = publish(book);
-console.log(book.toJS());
+//console.log(book.toJS());
 
 
 
@@ -40,8 +40,8 @@ function published(bk)
   return produce(bk, d => {d.isPublished = true});
 }
 let updated = published(bk);
-console.log(bk);
-console.log(updated);
+//console.log(bk);
+//console.log(updated);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //create a redux import store
@@ -55,22 +55,22 @@ const unsubscribe = store.subscribe(() => {
 });
 
 // add action
-store.dispatch(actions.ADD({description:"the first ever bug"}));
+//store.dispatch(actions.ADD({description:"the first ever bug"}));
 
 // to disable notification on console uncomment unsubscribe
-//unsubscribe();
+unsubscribe();
 
 //solved action
-store.dispatch(actions.SOLVED({id:1}));
+//store.dispatch(actions.SOLVED({id:1}));
 
 //remove action
-store.dispatch(actions.REMOVE({id:1}));
+//store.dispatch(actions.REMOVE({id:1}));
 
 //store.dispatch(actions.ADD({description:"the first ever bug"}));
 //store.dispatch(actions.ADD({description:"the first ever bug"}));
 //store.dispatch(actions.SOLVED({id:3}));
 
-store.dispatch(addUser({name: "user1"}));
+//store.dispatch(addUser({name: "user1"}));
 //store.dispatch(addUser({name: "user2"}));
 //store.dispatch(actions.assigntoUser({bugID: 2, userID: 1}));
 
@@ -78,14 +78,12 @@ store.dispatch(addUser({name: "user1"}));
 
 //console.log(actions.getBugbyuser(2)(store));
 
-store.dispatch({
-  type: 'error',
-  payload: {message: 'erroror'}
-}
-);
+//store.dispatch({type: 'error', payload: {message: 'erroror'}});
 
-store.dispatch({
-  type: 'a',
-  payload: {message: 'errorefwefor'}
-}
-);
+// add bug in UI layer
+//store.dispatch(actions.addbug({description: 'a'}));
+
+// getting bugs info to UI layer or frontend
+store.dispatch(actions.loadbugs());
+//setTimeout(() => store.dispatch(actions.solvebug(1)), 2000);
+setTimeout(() => store.dispatch(actions.assignBugtouser(1, 4)), 3000);

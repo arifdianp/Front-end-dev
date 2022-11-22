@@ -2,37 +2,97 @@
 import {createSlice} from "@reduxjs/toolkit";
 // reselect to
 import {createSelector} from 'reselect';
+//import action from api store
+import {apiReqBegin} from './api';
+//import moment for time calculation
+import moment from 'moment';
 
-let counter = 0;
+
 const slice = createSlice({
   name: 'bugs',
-  initialState: [],
+  initialState: {
+    list: [],
+    loading: false,
+    lastFetch: null
+  },
   reducers: {
     ADD: (state, action) =>{
-      state.push({
-        id: ++counter,
-        description: action.payload.description,
-        resolved: false
-      });
+      state.list.push(action.payload);
     },
     SOLVED: (state, action) =>{
-      const index = state.findIndex(bug => bug.id === action.payload.id);
-      state[index].resolved = true;
+      const index = state.list.findIndex(bug => bug.id === action.payload.id);
+      state.list[index].resolved = true;
     },
     REMOVE: (state, action) =>{
-      const index = state.findIndex(bug => bug.id === action.payload.id);
-      state.pop(state[index]);
+      const index = state.list.findIndex(bug => bug.id === action.payload.id);
+      state.list.pop(state[index]);
     },
     assigntoUser: (state, action) =>{
-      const {bugID, userID} = action.payload;
-      const index = state.findIndex(bug => bug.id === bugID);
-      state[index].userID = userID;
+      const {id: bugID, userID: userID} = action.payload;
+      const index = state.list.findIndex(bug => bug.id === bugID);
+      state.list[index].userID = userID;
+    },
+    bugreceived: (state,action) =>{
+      state.list = action.payload;
+      state.loading = false;
+      state.lastFetch = Date.now();
+    },
+    bugrequested: (state,action) =>{
+      state.loading = true;
+    },
+    bugrequestfail: (state,action) =>{
+      state.loading = false;
     }
   }
 });
 
-export const {ADD, SOLVED, REMOVE, assigntoUser} = slice.actions;
+export const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugrequestfail} = slice.actions;
 export default slice.reducer;
+
+
+
+//action creators
+// load the bugs from API
+export const loadbugs = () => (dispatch, getState) => {
+  const time_record = getState().entities.bugs.lastFetch;
+  const time_difference = moment().diff(moment(time_record), 'minutes');
+  //if(time_difference < 10) return;
+
+  dispatch(
+    apiReqBegin({
+      url: '/bugs',
+      onStart: bugrequested.type,
+      onSuccess: bugreceived.type,
+      onError: bugrequestfail.type
+    })
+  );
+};
+
+// Adding bug command
+export const addbug = (bug) => apiReqBegin({
+  url: '/bugs',
+  method: 'post',
+  data: bug,
+  onSuccess: ADD.type
+});
+
+export const solvebug = (id) => apiReqBegin({
+  url:'/bugs' + '/' + id,
+  method: 'patch',
+  data: {resolved: true},
+  onSuccess: SOLVED.type
+});
+
+export const assignBugtouser = (bugID, userID) => apiReqBegin({
+  url:'/bugs' + '/' + bugID,
+  method: 'patch',
+  data: {userID: userID},
+  onSuccess: assigntoUser.type
+});
+
+
+
+
 
 //selector function in redux
 export const getUnsolvedBugs = createSelector(
