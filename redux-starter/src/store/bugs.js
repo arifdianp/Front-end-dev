@@ -1,5 +1,7 @@
 // using redux toolkit to make action code simpler
 import {createSlice} from "@reduxjs/toolkit";
+// reselect to
+import {createSelector} from 'reselect';
 
 let counter = 0;
 const slice = createSlice({
@@ -20,9 +22,25 @@ const slice = createSlice({
     REMOVE: (state, action) =>{
       const index = state.findIndex(bug => bug.id === action.payload.id);
       state.pop(state[index]);
+    },
+    assigntoUser: (state, action) =>{
+      const {bugID, userID} = action.payload;
+      const index = state.findIndex(bug => bug.id === bugID);
+      state[index].userID = userID;
     }
   }
 });
 
-export const {ADD, SOLVED, REMOVE} = slice.actions;
+export const {ADD, SOLVED, REMOVE, assigntoUser} = slice.actions;
 export default slice.reducer;
+
+//selector function in redux
+export const getUnsolvedBugs = createSelector(
+  state => state.getState().entities.bugs,
+  bugs => bugs.filter(bug => !bug.resolved)
+);
+
+export const getBugbyuser = userID => createSelector(
+  state => state.getState().entities.bugs,
+  bugs => bugs.filter(bug => bug.userID === userID)
+);

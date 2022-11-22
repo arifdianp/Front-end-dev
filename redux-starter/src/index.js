@@ -47,6 +47,8 @@ console.log(updated);
 //create a redux import store
 import store from "./store/store";
 import * as actions from "./store/bugs";
+import {addProject} from "./store/projects";
+import {addUser, removeUser} from "./store/user";
 
 const unsubscribe = store.subscribe(() => {
   console.log("store has been changed!", store.getState());
@@ -64,4 +66,26 @@ store.dispatch(actions.SOLVED({id:1}));
 //remove action
 store.dispatch(actions.REMOVE({id:1}));
 
-console.log(store.getState());
+//store.dispatch(actions.ADD({description:"the first ever bug"}));
+//store.dispatch(actions.ADD({description:"the first ever bug"}));
+//store.dispatch(actions.SOLVED({id:3}));
+
+store.dispatch(addUser({name: "user1"}));
+//store.dispatch(addUser({name: "user2"}));
+//store.dispatch(actions.assigntoUser({bugID: 2, userID: 1}));
+
+//const x = actions.getUnsolvedBugs(store);
+
+//console.log(actions.getBugbyuser(2)(store));
+
+store.dispatch({
+  type: 'error',
+  payload: {message: 'erroror'}
+}
+);
+
+store.dispatch({
+  type: 'a',
+  payload: {message: 'errorefwefor'}
+}
+);
