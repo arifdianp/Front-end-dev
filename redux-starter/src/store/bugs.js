@@ -28,7 +28,7 @@ const slice = createSlice({
       state.list.pop(state[index]);
     },
     assigntoUser: (state, action) =>{
-      const {id: bugID, userID: userID} = action.payload;
+      const {id: bugID, userID} = action.payload;
       const index = state.list.findIndex(bug => bug.id === bugID);
       state.list[index].userID = userID;
     },
@@ -46,7 +46,8 @@ const slice = createSlice({
   }
 });
 
-export const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugrequestfail} = slice.actions;
+//do not export this inner function to prevent unintentional usage in UI call
+const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugrequestfail} = slice.actions;
 export default slice.reducer;
 
 
@@ -56,7 +57,7 @@ export default slice.reducer;
 export const loadbugs = () => (dispatch, getState) => {
   const time_record = getState().entities.bugs.lastFetch;
   const time_difference = moment().diff(moment(time_record), 'minutes');
-  //if(time_difference < 10) return;
+  if(time_difference < 10) return;
 
   dispatch(
     apiReqBegin({
@@ -68,7 +69,7 @@ export const loadbugs = () => (dispatch, getState) => {
   );
 };
 
-// Adding bug command
+// Adding bug command exported to UI layer
 export const addbug = (bug) => apiReqBegin({
   url: '/bugs',
   method: 'post',
@@ -86,11 +87,9 @@ export const solvebug = (id) => apiReqBegin({
 export const assignBugtouser = (bugID, userID) => apiReqBegin({
   url:'/bugs' + '/' + bugID,
   method: 'patch',
-  data: {userID: userID},
+  data: {userID},
   onSuccess: assigntoUser.type
 });
-
-
 
 
 
