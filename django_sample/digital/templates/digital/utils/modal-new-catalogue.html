@@ -1,0 +1,18 @@
+{% load digital_filters %}
+<div id="modalNewCatalogue" class="modal fade modal-drop-pic" role="dialog">
+  <div class="modal-dialog">
+      <form enctype="multipart/form-data" action="/digital/new-catalogue/" method="post">
+          {%csrf_token%}
+    <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="flex-direction:column;">
+                <h5 class="modal-title" style="margin-bottom:15px;">Catalogue Name</h5>
+                <div>
+                    <input type='text' name="catalogue-name" class='form-control' placeholder="Catalogue Name">
+                </div>
+          <input type="submit" class="btn btn-success" value="Save" name="_save" style="margin-top:20px;">
+            </div>
+        </div>
+     </form>
+  </div>
+</div>

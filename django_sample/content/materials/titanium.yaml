@@ -1,0 +1,36 @@
+file_name: titanium
+short_name: Titanium
+long_name: Titanium
+type: metal
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/titanium-1.png
+
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: As a metal, titanium is recognized for its high strength-to-weight ratio
+
+# list of benefits
+characterisic_titles:
+    - Light weight
+    - Corrosion resistance
+    - Strength weight ratio
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - cube
+    - superpowers
+    - bolt
+
+
+application_titles:
+    - Aerospace
+
+technology_list:
+    - LMD
+    - 3D Metal Powder
+    - CNC

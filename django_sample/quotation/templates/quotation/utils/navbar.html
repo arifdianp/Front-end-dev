@@ -1,0 +1,47 @@
+
+
+<nav class="navbar navbar-toggleable-sm navbar-light fixed-top bg-faded " id="mainNav" >
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand visible-md-block" href="/">
+    <img class="hidden-md-down" src="{%static 'quotation/icons/sp3d_big.png'%}" width="auto" height="40" style="margin-right:20px" alt="">
+    <img class="hidden-lg-up" src="{%static 'quotation/icons/sp3d_sm.png'%}" width="auto" height="40" style="margin-right:20px" alt="">
+  </a>
+  <!-- <a class="navbar-brand" href="#">Carousel</a> -->
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(Home)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'technologies' %}">Technologies <span class="sr-only">(Technologies)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'materials' %}">Materials <span class="sr-only">(Materials)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'standards' %}">Standards <span class="sr-only">(Standards)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-outline-red" href="{% url 'quick-quote1' %}?section=prototype" itemscope itemtype="http://schema.org/QuoteAction" itemprop="target">Get a Quote !</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'quick-quote1' %}?section=contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://blog.prototype-in-asia.com">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'quick-quote' %}" style="display:none">t</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li> -->
+    </ul>
+    <!-- <form class="form-inline mt-2 mt-md-0" action="?search=search" method="get">
+      <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>

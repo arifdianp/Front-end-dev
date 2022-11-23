@@ -1,0 +1,57 @@
+file_name: mjp
+
+short_name: MJP
+long_name: MultiJet Printing
+type : plastic
+catch_phrase: Precise and functional parts
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/sls_background.jpg
+small_image_1: quotation/img/technos/polyjet-1.jpg
+small_image_2: quotation/img/technos/polyjet-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: MJP or MultiJet Printing is an inkjet printing process that uses piezo printhead technology
+    to deposit either photocurable plastic resin or casting wax materials layer by layer.
+    MJP is used to build parts, patterns and molds with fine feature detail to address a wide range of applications.
+    These high-resolution printers are economical to own and operate and use a separate,
+    meltable or dissolvable support material to make post-processing a breeze.
+    Another big benefit is that removing support material is virtually a hands-free operation
+    and allows even the most delicate features and complex internal cavities to be thoroughly cleaned without damage.
+
+# list of benefits
+benefit_titles:
+    - High Resolution
+    - Smooth Finish
+
+benefit_descriptions:
+    -
+    -
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - key
+    - hashtag
+
+material_list:
+    - ABS
+    - Nylon
+    - Metal
+
+key_feature_titles:
+    - lead time
+    - cost
+    - accuracy
+    - geometrical complexity
+    - recommended batch size
+
+key_feature_values:
+    - 7 days
+    - $$$
+    - 1 µm
+    - medium
+    - 5-10

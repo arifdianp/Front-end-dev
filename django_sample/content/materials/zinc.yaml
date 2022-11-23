@@ -1,0 +1,34 @@
+file_name: zinc
+short_name: Zinc
+long_name: Zinc
+type: metal
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/zinc-1.jpg
+
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: Zinc is a bluish-white, lustrous, diamagnetic metal
+
+# list of benefits
+characterisic_titles:
+    - Hard
+    - Brittle
+    - Conductor
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - cube
+    - bolt
+
+
+application_titles:
+
+
+technology_list:
+    - CNC

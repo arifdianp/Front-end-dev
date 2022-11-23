@@ -1,0 +1,63 @@
+file_name: 40_fdm
+
+short_name: FDM
+long_name: Fused Deposition Modeling
+type : plastic
+catch_phrase: Funtional, Durable and Affordable
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/slide1.jpg
+small_image_1: quotation/img/technos/fdm-1.jpg
+small_image_2: quotation/img/technos/fdm-2.jpg
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: Fused Deposition Modeling (FDM) is a 3D printing technology widely known for its speed, accuracy, and competitive cost.
+    Our FDM solution offers large build volumes up to 24″ x 36″ x 36″, a variety of colors,
+    and a diverse selection of production-grade thermoplastics
+
+# list of benefits
+benefit_titles:
+    - Concept Models
+    - Rapid Prototyping
+    - Manufacturing Tools
+
+benefit_descriptions:
+    - The speed and versatility of FDM lets product developers create physical snapshots of their designs through the iterative process.
+    - FDM can be used to create durable prototypes that withstand thermal, chemical, and mechanical stress.
+    - High-performance materials make FDM a perfect solution for producing jigs, fixtures, tool masters and production tooling.
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - cube
+    - clock-o
+    - bolt
+
+material_list:
+    - ABS
+    - PC
+    - PP
+    - PS
+    - ASA
+    - PA6
+    - POM
+    - PC-PBT
+    - ABS Flame retardant
+    - PLA
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 3 days
+    - $
+    - 100 µm
+    - high
+    - 1-100

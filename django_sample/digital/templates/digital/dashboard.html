@@ -1,0 +1,248 @@
+{%extends 'digital/base.html'%}
+{% load digital_filters %}
+{%load static%}
+{%block content%}
+
+        <div class="content">
+            <!-- <div class="wip-screen"><div class="text-center"><img src="{%static 'digital/gif/wip1.gif'%}"></img><br><h1>Page under Development</h1></div></div> -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="fa fa-cubes"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>All Parts</p>
+                                            {{parts_sumup.parts_total}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="fa fa-ellipsis-h"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Pending Industrialisation</p>
+                                            {{parts_sumup.parts_pending_indus}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-calendar"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="fa fa-remove"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Disqualified</p>
+                                            {{parts_sumup.parts_disqualified}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-thumb-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Industrialized</p>
+                                            {{parts_sumup.parts_industrialized}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="row" style="margin-top:10px">
+                    <h5 class="text-center">Part Types:</h5>
+                    <div  id="partTypeBarChartContainer" style="max-height:245px;overflow-y:scroll;margin-bottom:20px;" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                        <div id="partTypeBarChart" class="ct-chart"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5 class="text-center">Appliances:</h5>
+                    <div id="ApplianceFamilyPieChartContainer" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                        <div id="ApplianceFamilyPieChart" class="ct-chart"></div>
+                    </div>
+                </div> -->
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Materials</h4>
+                                <p class="category">Family of materials</p>
+                            </div>
+                            <div class="content">
+                                <div  id="partTypeBarChartContainer" style="max-height:326px;overflow-y:scroll;margin-bottom:20px;" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                                    <div id="partTypeBarChart" class="ct-chart"></div>
+                                </div>
+
+                                <div class="footer">
+                                    <!-- <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Plastic
+                                        <i class="fa fa-circle text-danger"></i> Metal
+                                    </div>
+                                    <hr> -->
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Cross Catalogue analysis
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Family Distribution</h4>
+                                <p class="category">Distribution of parts per appliance family</p>
+                            </div>
+                            <div class="content">
+                                <!-- <div id="applianceFamilyBarChart" class="ct-chart"></div> -->
+                                <div id="ApplianceFamilyPieChartContainer" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                                    <div id="ApplianceFamilyPieChart" class="ct-chart"></div>
+                                </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend" style="opacity:0;">
+                                        <i class="fa fa-circle text-info"></i> Plastic Parts
+                                        <i class="fa fa-circle text-warning"></i> Metal Parts
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Cross Catalogue analysis
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card " style="display:none;">
+                            <div class="header">
+                                <h4 class="title">2017 Sales</h4>
+                                <p class="category">All products including Taxes</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart"></div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Plastic Parts
+                                        <i class="fa fa-circle text-warning"></i> Metal Parts
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="display:none;">
+                            <div class="header">
+                                <h4 class="title">Parts addition</h4>
+                                <p class="category">24 Hours performance</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartHours" class="ct-chart"></div>
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Open
+                                        <i class="fa fa-circle text-danger"></i> Indus
+                                        <i class="fa fa-circle text-warning"></i> test
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated 3 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+{%endblock content%}
+
+{%block extrascript%}
+
+<script type="text/javascript">
+    var parts_plastic = {{parts_sumup.parts_plastic}};
+    var parts_metal = {{parts_sumup.parts_metal}};
+    var parts_total = {{parts_sumup.parts_total}};
+    // var appliance_family_distribution={{family_ditribution|safe}};
+    var appliance_fam_distrib = {{appliance_fam_distrib|safe}};
+    var parttype_distrib = {{parttype_distrib|safe}};
+    $(document).ready(function(){
+        demo.initChartist();
+        $.notify({
+            icon: 'ti-gift',
+            message: "Welcome to <b>SP3D platform for OEMs, {{user.first_name}} !</b>"
+        },{
+            type: 'success',
+            timer: 2000
+        });
+    });
+</script>
+<script src="{% static 'digital/js/dashboard.js' %}?dev={% random_int %}"></script>
+{%endblock extrascript%}

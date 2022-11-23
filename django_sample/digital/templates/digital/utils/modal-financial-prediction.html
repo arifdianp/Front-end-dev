@@ -1,0 +1,76 @@
+{% load digital_filters %}
+{%load static%}
+<div id="modalFinancialPrediction" class="modal fade modal-predictions" role="dialog">
+  <div class="modal-dialog">
+<!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-body">
+            <i id="button-upload-file-help" class="fa fa-info-circle" style="font-size:3rem;position:absolute;top:20px;right:20px;cursor:pointer;"></i>
+            <div id="upload-file-help" style="background-color:#fff;position:absolute;z-index:100;top:60px;color:black;display:none;border-radius:3px">
+                <br>
+                <span>input File templates:</span> 
+                <hr>
+                <span>Obsolete Parts:</span>
+                <img src="{% static 'digital/img/csv/financial_prediction_obsolete.jpg' %}" style="width:98%;"></img>
+                <span>Longtail Parts:</span>
+                <img src="{% static 'digital/img/csv/financial_prediction_longtail.jpg' %}" style="width:98%;"></img>
+                <span>Shortage Parts:</span>
+                <img src="{% static 'digital/img/csv/financial_prediction_shortage.jpg' %}" style="width:98%;"></img>
+                <span>PEX Parts:</span>
+                <img src="{% static 'digital/img/csv/financial_prediction_pex.jpg' %}" style="width:98%;"></img>
+            </div>
+            <div>
+                <form id="form_financial_analysis" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <!-- <ul class="nav nav-pills" style="display:flex;justify-content:center;position:relative;">
+                        <li class="analysis-type" data-value="obsolete"><a data-toggle="pill" href="#obsolete-tab">Obsolete Parts</a></li>
+                        <li class="analysis-type" data-value="longtail"><a data-toggle="pill" href="#long-tail-tab">Long Tail Parts</a></li>
+                        <li class="analysis-type" data-value="shortage"><a data-toggle="pill" href="#shortage-tab">Shortage Parts</a></li>
+                        <li class="analysis-type" data-value="pex"><a data-toggle="pill" href="#pex-tab">PEX Parts</a></li>
+                        <div style="position:absolute;opacity:0;left:50%;right:50%">
+                            <input  type="radio" name="analysis-type" value="obsolete" required>
+                            <input  type="radio" name="analysis-type" value="longtail">
+                            <input  type="radio" name="analysis-type" value="shortage">
+                            <input  type="radio" name="analysis-type" value="pex">
+                        </div>
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div id="obsolete-tab" class="tab-pane">
+                            <div><span class='ti-file' style="font-size:3rem;"></span>&nbsp;<span>Upload a .CSV file with that format:</span></div>
+                            <img src="{% static 'digital/img/csv/financial_prediction_obsolete.jpg' %}" style="width:95%;"></img>
+                        </div>
+                        <div id="long-tail-tab" class="tab-pane">
+                            <div><span class='ti-file' style="font-size:3rem;"></span>&nbsp;<span>Upload a .CSV file with that format:</span></div>
+                            <img src="{% static 'digital/img/csv/financial_prediction_longtail.jpg' %}" style="width:95%;"></img>
+                        </div>
+                        <div id="shortage-tab" class="tab-pane">
+                            <div><span class='ti-file' style="font-size:3rem;"></span>&nbsp;<span>Upload a .CSV file with that format:</span></div>
+                            <img src="{% static 'digital/img/csv/financial_prediction_shortage.jpg' %}" style="width:95%;"></img>
+                        </div>
+                        <div id="pex-tab" class="tab-pane">
+                            <div><span class='ti-file' style="font-size:3rem;"></span>&nbsp;<span>Upload a .CSV file with that format:</span></div>
+                            <img src="{% static 'digital/img/csv/financial_prediction_pex.jpg' %}" style="width:95%;"></img>
+                        </div>
+                    </div> -->
+                    
+                    <div class="form-group">
+                      <label>Add parts to Catalogue:</label>
+                      <select class="form-control" name="catalogue-id" style="max-width:200px;display:inline-block">
+                        {% for catalogue in catalogues %}
+                        <option value='{{catalogue.id}}'>{{catalogue.name}}</option>
+                        {%endfor%}
+                      </select>
+                    </div>
+                    <div><input style="display:inline-block;max-width:240px;border:none;" class="form-control" type="file" name="file" accept=".csv" required></div>
+
+
+                    <button class="btn" type="submit">Submit</button>
+                </form>
+            </div>
+      <!-- <input type="submit" class="btn btn-success" value="Save" name="_save">
+     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        </div>
+    </div>
+  </div>
+</div>

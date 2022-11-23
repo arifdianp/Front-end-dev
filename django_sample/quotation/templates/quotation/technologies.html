@@ -1,0 +1,190 @@
+{% extends "quotation/base.html" %}
+{% load customtags %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quotation/css/carousel.css' %}" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="position:fixed;">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active techno-background">
+        {%if techno%}
+      <img class="first-slide" style= "background:url({%static techno|dicGet:'background_image'%});background-size:100% auto;background-position:50% 80%;">
+      {%else%}
+      <img class="first-slide" style= "background:url({%static 'quotation/img/technos/sls_background.jpg'%});background-size:auto 180%;background-position:50% 80%;">
+      {%endif%}
+      <img class="slide-filter">
+
+        <div class="carousel-caption d-md-block text-left" style="text-align:center;">
+            {%if techno%}
+          <h1>{{techno|dicGet:'long_name'}}</h1>
+          <a class="btn btn-lg btn-red" href="{% url 'quick-quote1' %}?techno={{techno|dicGet:'id'}}" role="button">Get Quote &raquo;</a>
+          {%else%}
+          <h1>Our Technologies</h1>
+          <p><a class="btn btn-lg btn-red" href="{% url 'quick-quote1' %}" role="button">Get a Quote</a></p>
+          {%endif%}
+          <!-- <p>Upload your design to get an instant quote and your prototype produced in 5 working days</p> -->
+          <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'quick-quote1' %}" role="button">Start</a></p> -->
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="carousel-overlay-transparent" style="height:25rem"></div>
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div id="content-container" class="parallax-container" style="
+    {%if techno%}
+    background:url({% static techno|dicGet:'background_image'%});
+    {%else%}
+    background:url({% static 'quotation/img/technos/sls_background.jpg'%});
+    {%endif%}
+    background-size:auto 180%;background-position:50% 40%;background-attachment: fixed;">
+
+{%if techno%}
+    <div class="content-background">
+
+          <!-- Three columns of text below the carousel -->
+        <div class="row" style="padding:0px 30px 30px 30px;">
+            <div class="col-xl-4 col-lg-6 col-md-12 px-lg-5 py-md-5" style="text-align:justify;padding-top:20px">
+                <h3 class="text-center color2">Description</h3></br>
+                <p>{{techno|dicGet:"description"|linebreaks}}</p>
+                </br>
+                <p class="text-center d-sm-none"><a class="btn btn-red" href="{% url 'quick-quote1' %}?techno={{techno|dicGet:'id'}}" role="button">Get Quote &raquo;</a></p>
+                <div class="vertical-separator hidden-md-down"></div>
+                <div class="horizontal-separator hidden-lg-up"></div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-12 px-lg-5 py-md-5" style="text-align:justify;padding-top:20px;">
+                <h3 class="text-center color2">Applications</h3></br>
+
+                {%for benef_title in techno|dicGet:"benefit_titles"%}
+
+                <h6><i class="fa fa-{{techno|dicGet:'benefit_icons'|index:forloop.counter0}} color2" style="margin-right:10px"></i>{{benef_title}}</h6>
+                <p>{{techno|dicGet:"benefit_descriptions"|index:forloop.counter0 }}</p>
+
+                {%endfor%}
+                </br>
+                <p class="text-center d-sm-none"><a class="btn btn-red" href="{% url 'quick-quote1' %}?techno={{techno|dicGet:'id'}}" role="button">Get Quote &raquo;</a></p>
+                <div class="vertical-separator hidden-lg-down"></div>
+                <div class="horizontal-separator hidden-xl-up"></div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-12 px-lg-5 py-md-5" style="text-align:justify;padding-top:20px;">
+                <h3 class="text-center color2">Materials</h3></br>
+
+
+                <div class="d-flex flex-wrap">
+                    {%for material in techno|dicGet:"material_list"%}
+                        <span><i class="fa fa-certificate" style="margin:0px 10px 0px 10px;font-size:10px"></i>{{material}}</span>
+                    {%endfor%}
+                </div>
+
+
+                </br>
+                </br>
+                <h3 class="text-center color2">Key Features</h3></br>
+                <ul class="list-group">
+                {%for key_feature in techno|dicGet:"key_feature_titles"%}
+                    <li class="list-group-item">{{key_feature}}:&nbsp;&nbsp;<b>{{techno|dicGet:"key_feature_values"|index:forloop.counter0 }}</b></li>
+                {%endfor%}
+                </ul>
+                </br>
+                <p class="text-center d-sm-none"><a class="btn btn-red" href="{% url 'quick-quote1' %}?techno={{techno|dicGet:'id'}}" role="button">Get Quote &raquo;</a></p>
+            </div>
+            <div class="col-sm-12">
+                <p class="text-center d-none d-sm-block"><a class="btn btn-lg btn-red" href="{% url 'quick-quote1' %}?techno={{techno|dicGet:'id'}}" role="button">Get Quote &raquo;</a></p>
+            </div>
+        </div>
+
+  </div>
+
+
+  <div class="transparent-background d-flex justify-content-center align-items-center" style="height:300px;">
+      <h2></h2>
+  </div>
+ {%endif%}
+
+
+  <div class="content-background">
+          <!-- START THE FEATURETTES -->
+          <!-- <hr class="featurette-divider"> -->
+          {%if techno%}
+          <div class="row text-center" style="padding-top:50px;padding-bottom:100px;">
+              <div class="col-lg-12">
+                  <h2 class="color2">Other Technologies</h2>
+              </div>
+          </div>
+          {%endif%}
+          <div class="row text-left px-sm-5" style="padding-top:10px;padding-bottom:10px;">
+              <div class="col-lg-12">
+                  <h3 class="color2">Plastic</h3>
+              </div>
+          </div>
+          <div class="d-flex flex-wrap">
+              {%for techno1 in techno_list%}
+              {%if techno1|dicGet:'type'|lower == "plastic"%}
+              <div class="card-container">
+                  <a href="{% url 'technology_detail' techno_url_name=techno1|dicGet:'url_name'|lower %}">
+                    <div class="card techno-card">
+                        <div class="card-img card-img-top" style="background-image:url({% static techno1|dicGet:'small_image_1'%})"></div>
+                        <div class="card-img card-img-bottom" style="background-image:url({% static techno1|dicGet:'small_image_2'%})"></div>
+                      <div class="card-block">
+                          <h4 class="card-title" data-short-title="{{techno1|dicGet:'short_name'}}" data-long-title="{{techno1|dicGet:'long_name'}}">{{techno1|dicGet:'short_name'}}</h4>
+                          <p class="card-text">{{techno1|dicGet:'catch_phrase'}}</p>
+                          <a class="btn btn-red pull-right" href="{% url 'quick-quote1' %}?techno={{techno1|dicGet:'id'}}" role="button" style="margin-top:10px;display:none;">Get Quote &raquo;</a>
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                      </div>
+                  </div>
+                  </a>
+              </div>
+              {%endif%}
+              {%endfor%}
+          </div>
+          </br>
+          <div class="row text-left px-sm-5" style="padding-top:10px;padding-bottom:10px;">
+              <div class="col-lg-12">
+                  <h3 class="color2">Metal</h3>
+              </div>
+          </div>
+          <div class="d-flex flex-wrap">
+              {%for techno1 in techno_list%}
+              {%if techno1|dicGet:'type'|lower == "metal"%}
+              <div class="card-container">
+                  <a href="{% url 'technology_detail' techno_url_name=techno1|dicGet:'url_name'|lower %}">
+                    <div class="card techno-card">
+                        <div class="card-img card-img-top" style="background-image:url({% static techno1|dicGet:'small_image_1'%})"></div>
+                        <div class="card-img card-img-bottom" style="background-image:url({% static techno1|dicGet:'small_image_2'%})"></div>
+                      <div class="card-block">
+                          <h4 class="card-title" data-short-title="{{techno1|dicGet:'short_name'}}" data-long-title="{{techno1|dicGet:'long_name'}}">{{techno1|dicGet:'short_name'}}</h4>
+                          <p class="card-text">{{techno1|dicGet:'catch_phrase'}}</p>
+                          <a class="btn btn-red pull-right" href="{% url 'quick-quote1' %}?techno={{techno1|dicGet:'id'}}" role="button" style="margin-top:10px;display:none;">Get Quote &raquo;</a>
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                      </div>
+                  </div>
+                  </a>
+              </div>
+              {%endif%}
+              {%endfor%}
+          </div>
+  </div>
+
+  <div class="transparent-background d-flex justify-content-center align-items-center" style="height:300px;">
+      <h2></h2>
+  </div>
+
+
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="{% static 'quotation/js/ie10-viewport-bug-workaround.js' %}"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+{% endblock scripts %}

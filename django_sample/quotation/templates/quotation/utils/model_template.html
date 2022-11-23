@@ -1,0 +1,189 @@
+
+<section id="models-container" class="container" style="margin-top:20px">
+    <!-- <script id="hidden-template" type="text/x-custom-template"> -->
+    <div class="row single-model" id="model-" style="margin-bottom:20px">
+        <div class="canvas-container col-lg-4">
+            <div class="stl-canvas" style="width:100%;"></div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card model" data-object-id="">
+                <div class="col-md-12">
+                    <div class="row first-row card-header">
+                        <div class="col-md-1">
+                            <img class="hidden-md-down" src="{%static "quotation/icons/cube.png"%}" width="auto" height="40" style="margin-right:20px" alt="">
+                            <!-- <img src="https://autotiv-production.s3.amazonaws.com/three_dimensional_objects/thumbnails/000/004/767/original/thumbnail-19483-20170829-28002-me7a84.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJFMYWODU22ZHAXRA%2F20170829%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20170829T013601Z&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=050fd6df410426ad67e7feb6f49d8282413ee546d6f001a5afa5d91398dabb27" alt="thumbnail" class="thumbnail"> -->
+                        </div>
+                        <div class="col-md-5">
+                            <h4 class="model-file-name">assemb6.STL</h4>
+                            <div class="form-group">
+                                <span class="dimensions float-left">
+                                    <!-- react-text: 34 -->39.247<!-- /react-text --><!-- react-text: 35 --> x <!-- /react-text --><!-- react-text: 36 -->9.100<!-- /react-text --><!-- react-text: 37 --> x <!-- /react-text --><!-- react-text: 38 -->41.500<!-- /react-text -->
+                                </span>
+                                <select name="units" class="form-control form-control-sm col-sm-4 float-left warning">
+                                    <option>choose units</option>
+                                    <option>mm</option>
+                                    <option>cm</option>
+                                    <option>inches</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1 pricing-container form-group text-center">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" min="1" class="form-control form-control-sm text-center" name="quantity" placeholder="" value="1">
+                        </div>
+                        <div class="col-md-2 pricing-container text-center">
+                            <label>Per Unit</label>
+                            <span class="dollars"></span>
+                        </div><div class="col-md-2 pricing-container text-center">
+                            <label>Subtotal</label>
+                            <span class="dollars"></span>
+                        </div>
+                        <div class="col-md-1 text-right">
+                            <button class="btn btn-danger delete-model-button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="carousel slide" id="carousel-model" data-ride="carousel" data-interval="false" data-wrap="false" >
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item justify-content-lg-center active">
+
+                                    <!-- MANUF PROCESS -->
+                                    <div class="col-lg-11 text-center d-flex align-items-center">
+                                        <div class="d-flex flex-column" style="width:100%">
+                                            <div class = "row" style="display:flex;align-items:center; margin-bottom:10px">
+                                                <div class="col-md-6">
+                                                    <div class="numberCircle float-right"><b>1</b></d></div>
+                                                </div>
+                                                <div class="col-md-6 text-left">
+                                                    <span class="category-title" > Process</span>
+                                                </div>
+                                            </div>
+
+                                            <fieldset class="RadioBtn-group">
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input"  name="manuf-process" value="sla">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Great for trade show models and display prototypes. Highest accuracy and smoothest surface finish of any 3D printing technology.">SLA</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="sls">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Great for functional models and functional prototypes. SLS 3D Printed parts are very strong and durable.">SLS</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="FDM">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Great for functional end-use parts in real thermoplastic materials. FDM is the least accurate of the 3D printing technologies and there will be noticable layer lines in the model.">FDM</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="Polyjet">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Great for rubber-like and multi-material 3D Printed prototypes.">Polyjet</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="DMLS">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Direct Metal Laser Sintering is a metal 3D Printing technology that is great at production of complex parts. For simple geometries, CNC is usually more efficient.">DMLS</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="CNC Machining">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="CNC Machining is great for simple geometries and highly accurate prototypes and production parts. We will have to manually quote your project in CNC.">CNC Machining</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="manuf-process" value="Casting/Injection Molding">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Great for low volume production of plastic, elastomeric, and metal parts in end-use materials">Casting/Injection Molding</span>
+                                                </label>
+                                                <label class="RadioBtn compare-prices">
+                                                    <span class="RadioBtn-label"><a href="" data-object-id="">Compare Prices</a></span>
+                                                </label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SECOND CAROUSEL PANNEL -->
+                                <div class="carousel-item justify-content-lg-center">
+
+                                        <!-- MATERIAL -->
+                                    <div class="col-lg-11 text-center d-flex align-items-center">
+                                        <div class="d-flex flex-column" style="width:100%">
+                                            <div class = "row" style="display:flex;align-items:center; margin-bottom:10px">
+                                                <div class="col-md-6">
+                                                    <div class="numberCircle float-right"><b>2</b></d></div>
+                                                </div>
+                                                <div class="col-md-6 text-left">
+                                                    <span class="category-title"> Material</span>
+                                                </div>
+                                            </div>
+                                            <fieldset class="RadioBtn-group">
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="material-type" value="SLS Technician's Choice">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="A durable Nylon material">SLS Technician's Choice</span>
+                                                </label>
+                                                <label  class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input"  name="material-type" value="White Nylon 12">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="Duraform PA - Bright White Durable Nylon">White Nylon 12</span>
+                                                </label>
+                                                <label  class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input"  name="material-type" value="Glass Filled Nylon">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="Duraform GF - More rigid and grayish">Glass Filled Nylon</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="material-type" value="High Temperature Composite">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="Duraform HST">High Temperature Composite</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="material-type" value="70A TPU: Rubber-Like">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="Duraform Flex - 70A Elastomer">70A TPU: Rubber-Like</span>
+                                                </label>
+                                                <label class="RadioBtn">
+                                                    <input type="radio" class="RadioBtn-input" name="material-type" value="Black Nylon 11">
+                                                    <span class="RadioBtn-label" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="" data-original-title="Much more prone to warping than Nylon 12 - be cautious with mating parts ">Black Nylon 11</span>
+                                                </label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- THIRD CAROUSEL PANNEL -->
+                                <div class="carousel-item justify-content-lg-center">
+
+                                        <!-- MATERIAL -->
+                                    <div class="col-lg-11 text-center d-flex align-items-center">
+                                        <div class="d-flex flex-column" style="width:100%">
+                                            <div class = "row" style="display:flex;align-items:center; margin-bottom:10px">
+                                                <div class="col-md-6">
+                                                    <div class="numberCircle float-right"><b>3</b></d></div>
+                                                </div>
+                                                <div class="col-md-6 text-left">
+                                                    <span class="category-title"> Notes</span>
+                                                </div>
+                                            </div>
+                                            <textarea class="notes" name="notes" placeholder="Request any secondary processes, materials, or project specifications here! eg) chrome plating, dyeing, custom painting" class="form-control notes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTROL BUTTONS CAROUSEL -->
+                            <a class="carousel-control-prev" href="#carousel-model" role="button" data-slide="prev">
+                                <i class="fa fa-chevron-left" aria-hidden="false"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-model" role="button" data-slide="next">
+                                <i class="fa fa-chevron-right" aria-hidden="false"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row card-footer">
+                    <div class="col-md-2 text-right">
+                        <span>Notes</span>
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="loading" style="display:none;margin-bottom:20px">
+    <div class="col-lg-12 text-center">
+        <img src="{% static 'quotation/gif/loading-bbs.gif' %}" alt="" style="height:100px;">
+    </div>
+</div>
+
+</section>

@@ -1,0 +1,100 @@
+<form class="quote-form" method="post" action="{% url 'send_quote_form' %}" id="quote-form-global" enctype="multipart/form-data" style="position:relative;" itemscope itemtype="http://schema.org/QuoteAction" itemprop="target">
+    {% csrf_token %}
+    <div class="loading-wheel" style="position:absolute;top:0;bottom:0;left:0;right:0;z-index:100;background-color:rgba(255,255,255,0.5);display:none;">
+        <img src="{%static 'quotation/gif/loading-2.gif'%}" style="height:150px;position:absolute;top:38%;left:35%;"></img>
+    </div>
+
+    <div id="contact-us-banner" class="contact-us lead text-center">for more specific requests, <b>Contact Us  !</b></div>
+    <script>var form_section = "{{section}}";var form_techno = "{{techno}}";var form_service="{{service}};"</script>
+
+    <div class="form-group f-g-all">
+        <div class="d-flex justify-content-center">
+              <div class="btn-group" data-toggle="buttons">
+                  <label class="btn quote-choice-button active">
+                      <input type="radio" name="request-type" checked autocomplete="off" value="prototype"> Prototype
+                  </label>
+                  <label class="btn quote-choice-button">
+                      <input type="radio" autocomplete="off" name="request-type" value="service"> Service
+                  </label>
+                  <label class="btn quote-choice-button">
+                      <input type="radio" autocomplete="off" name="request-type" value="contact"> Contact
+                  </label>
+              </div>
+          </div>
+    </div>
+    <div class="form-group f-g-contact-email" style="display:none" itemscope itemtype="http://schema.org/ContactPoint">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+      <span itemprop="email">service@sp3d.co</span>
+      <div itemscope itemtype="http://schema.org/ContactPoint"><span itemprop="telephone">+65 69090460</span></div>
+      <div itemscope itemtype="http://schema.org/LocalBusiness"><span itemprop="address">91C Lavender Street</br>338719 Singapore</br></span></div>
+        </div>
+        
+    </div>
+  <div class="form-group f-g-all">
+    <label for="exampleInputEmail1">Email address *</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" required>
+    <br>
+    <label for="examplecontact1">Contact Number *</label>
+    <div class="input-phone"></div>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <!-- <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div> -->
+
+    <div class="form-group f-g-prototype">
+        <label for="process">Process</label>
+        <select class="form-control" id="process" name="process">
+            <option selected>Unknown</option>
+            {%for technology in techno_list%}
+            <option {%if techno == technology.id|stringformat:'i' %}selected{%endif%}>{{technology.name}}</option>
+            {%endfor%}
+            
+        </select>
+    </div>
+    <div class="form-group f-g-service" style="display:none">
+        <label for="service">Service</label>
+        <select class="form-control" id="service" name="service">
+            <option selected>Other</option>
+            <option {%if service == "reverse_engineering"%}selected{%endif%}>Reverse Engineering</option>
+            <option {%if service == "design_engineering_service"%}selected{%endif%}>Design &amp; Engineering Service</option>
+            <option {%if service == "rapid_prototyping"%}selected{%endif%}>Rapid Prototyping</option>
+            <option {%if service == "conventional_process"%}selected{%endif%}>Conventional Processes</option>
+            <option {%if service == "quality_insurance"%}selected{%endif%}>Testing &amp; Quality insurance</option>
+            <option {%if service == "injection_molding"%}selected{%endif%}>Plastic injection molding</option>
+            <option {%if service == "industrial_sourcing"%}selected{%endif%}>Industrial Sources</option>
+        </select>
+    </div>
+    <div class="d-flex flex-wrap">
+        <div class="form-group f-g-prototype mx-auto" style="max-width:40%;">
+            <label for="quantity">Quantity</label>
+            <input class="form-control" type="number" id="quantity" name="quantity" min="0" step="1" value="1">
+            <!--small id="emailHelp" class="form-text text-muted">&le; 10 : 10% discount | &le; 30 : up to 20% discount </small>-->
+        </div>
+        <div class="form-group f-g-prototype f-g-service mx-auto" style="max-width:50%;">
+            <label for="process">Expected Lead Time</label>
+            <select class="form-control" id="timeline" name="timeline">
+                <option>Time is not a Constraint</option>
+                <option>less than 2 days </option>
+                <option>less than 7 days</option>
+                <option>2 weeks</option>
+                <option>1 month</option>
+            </select>
+        </div>
+    </div>
+
+  <div class="form-group f-g-all">
+    <label for="details">Details (optional)</label>
+    <textarea class="form-control" id="details" name="details" rows="3"></textarea>
+  </div>
+
+  <div class="form-group f-g-prototype f-g-service">
+    <label for="form-files">File input</label>
+    <input type="file" class="form-control-file size-check" id="form-files" name="form-files" aria-describedby="fileHelp" data-max-size="104857600" multiple>
+    <small id="fileHelp" class="form-text text-muted">Insert at least one file - CAD, STL, Drawings... <div style="color:red">Get in touch with us, if you are not able to share the NDA design.</div></small>
+  </div>
+
+  <button type="submit" class="btn btn-primary" itemprop="target">Submit</button>
+  <span style="margin-left:50px;"></span>
+</form>

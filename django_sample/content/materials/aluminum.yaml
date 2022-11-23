@@ -1,0 +1,36 @@
+file_name: aluminum
+short_name: Alu
+long_name: Aluminum
+type: metal
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/aluminum-1.png
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: This Plastic Material is great for both experienced professionals and beginners' designs
+
+# list of benefits
+characterisic_titles:
+    - Light Weight
+    - corrosion resistant
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - bolt
+    - bolt
+
+
+application_titles:
+    - Automobile
+    - Aerospace
+    - Construction
+
+technology_list:
+    - LMD
+    - 3D Metal Powder
+    - CNC
+    - Aluminum Casting

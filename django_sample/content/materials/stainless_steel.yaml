@@ -1,0 +1,33 @@
+file_name: stainless_steel
+short_name: Stainless
+long_name: Stainless Steel
+type: metal
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/stainless-steel-1.png
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: Stainless steel does not readily corrode, rust or stain with water as ordinary steel does.
+
+# list of benefits
+characterisic_titles:
+    - Strength
+    - Hardness
+    - Corrosion resistant
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - bolt
+    - cube
+
+application_titles:
+    
+technology_list:
+    - LMD
+    - 3D Metal Powder
+    - CNC

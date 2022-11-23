@@ -1,0 +1,132 @@
+{% load digital_filters %}
+<div id="modalNewPart" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      <form enctype="multipart/form-data" action="" method="post" id="new_part_form" class="">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#003F71;color:#ffffff;">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> <i class="fa fa-cube" style="margin-right:20px;font-size:2.3rem;"></i>New Part</h4>
+      </div>
+      <div class="modal-body" style="background-color:#f5f5f5">
+          <div class="row">
+              <div class="col-xs-12">
+
+                  {%csrf_token%}
+                  {%comment%}{{formPart.as_p}}{%endcomment%}
+                  <div class="form-group">
+                      <label for="id_catalogue">Add Part to Catalogue:</label>
+                      {{formPart.catalogue|add_class:"form-control"}}
+                  </div>
+                  <div class="form-group">
+                      <label for="id_reference">Reference:</label>
+                      {{formPart.reference|add_class:"form-control"|attr:"placeholder:unique identifier of part"}}
+                  </div>
+                  <div class="form-group" style="position:relative;">
+                      <label for="id_name">Name:</label>
+                      {{formPart.name|add_class:"form-control"|attr:"placeholder:name of part"}}
+                      <i class="fa fa-refresh" id="find-part-type" style="position:absolute;bottom:15px;right:15px;cursor:pointer;display:none;"></i>
+                  </div>
+                  <div class="row subcategory" data-toggle="collapse" href="#new-part-details">
+                      <h5><i class="ti-arrow-right"></i>Details</h5>
+                  </div>
+                  <div id ="new-part-details" class="row text-center collapse" aria-expanded="false">
+                      <div class="col-xs-12 col-sm-6">
+                          <div class="form-group">
+                              <label for="id_appliance_family">Appliance Type:</label>
+                              {{formPart.appliance_family|add_class:"form-control"}}
+                          </div>
+                          <div class="form-group">
+                              <label for="id_material">Material:</label>
+                              {{formPart.material|add_class:"form-control"}}
+                          </div>
+                          <div class="form-group">
+                              <label for="id_appliance">Fits Appliance:</label>
+                              {{formPart.appliance|add_class:"form-control"}}
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                          <div class="form-group">
+                              <label for="id_type">Part Type:</label>
+                              {{formPart.type|add_class:"form-control"}}
+                          </div>
+                          <div class="form-group">
+                              <label for="" style="display:block;">L x W x H:</label>
+                              {{formPart.length|add_class:"form-control dim-input"|attr:"placeholder:l"}}
+                              {{formPart.width|add_class:"form-control dim-input"|attr:"placeholder:w"}}
+                              {{formPart.height|add_class:"form-control dim-input"|attr:"placeholder:h"}}
+                              {{formPart.dimension_unit|add_class:"form-control dim-input unit-input"}}
+                          </div>
+                          <div class="form-group">
+                              <label for="" style="display:block;">Weight</label>
+                              {{formPart.weight|add_class:"form-control dim-input"|attr:"placeholder:weight"}}
+                              {{formPart.weight_unit|add_class:"form-control dim-input unit-input"}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row subcategory" data-toggle="collapse" href="#new-part-characteristics">
+                      <h5><i class="ti-arrow-right"></i>Characteristics</h5>
+                  </div>
+                    <div id ="new-part-characteristics" class="row collapse" aria-expanded="false">
+                        <div class="col-xs-12 col-sm-6">
+                            {%comment%}{{formCharacteristics.as_p}}{%endcomment%}
+
+                            <div class="form-group">
+                                {{formCharacteristics.is_visual|add_class:"styled-checkbox"}}
+                                <label for="id_is_visual">Visual Part</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_transparent|add_class:"styled-checkbox"}}
+                                <label for="id_is_transparent">Transparent</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_water_resistant|add_class:"styled-checkbox"}}
+                                <label for="id_is_water_resistant">Water Resistant</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_chemical_resistant|add_class:"styled-checkbox"}}
+                                <label for="id_is_chemical_resistant">Chemical Resistant</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_flame_retardant|add_class:"styled-checkbox"}}
+                                <label for="id_is_flame_retardant">Flame Retardant</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_food_grade|add_class:"styled-checkbox"}}
+                                <label for="id_is_food_grade">Food Grade</label>
+                            </div>
+                            <div class="form-group">
+                                {{formCharacteristics.is_rubbery|add_class:"styled-checkbox"}}
+                                <label for="id_is_rubbery">Rubbery Like</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="id_color">Color</label>
+                                {{ formCharacteristics.color|add_class:"form-control"}}
+                            </div>
+                            <div class="form-group" id="fg-temp-range">
+                                <label for="id_min_temp">Operating Temperature Range</label>
+                                {{formCharacteristics.min_temp|add_class:"form-control temp-dim-input"}}
+                                {{formCharacteristics.max_temp|add_class:"form-control temp-dim-input"}}
+                                {{formCharacteristics.temp_unit|add_class:"form-control temp-dim-input"}}
+                            </div>
+                            <div class="form-group" id="fg-flame-retardancy" style="display:none;">
+                                <label for="id_flame_retardancy">Flame Retardancy Level</label>
+                                {{formCharacteristics.flame_retardancy|add_class:"form-control"}}
+                            </div>
+                        </div>
+                    </div>
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+         <input type="submit" class="btn btn-success" value="Save" name="_save">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+     </form>
+  </div>
+</div>

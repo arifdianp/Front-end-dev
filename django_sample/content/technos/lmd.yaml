@@ -1,0 +1,63 @@
+file_name: lmd
+
+short_name: LMD
+long_name: Laser Metal Deposition
+type : metal
+catch_phrase: High speed metal additive
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/lmd-background.jpg
+small_image_1: quotation/img/technos/lmd-1.jpg
+small_image_2: quotation/img/technos/lmd-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: Laser metal deposition can be used for coating and repair purposes,
+    to generate entire components, and for joining processes such as bridging gaps.
+    In the field of additive manufacturing, it is also ideal for generating entire components and combining different manufacturing methods.
+
+# list of benefits
+benefit_titles:
+    - Direct Manufacturing
+    - High-value or bespoke parts
+    - Moulds Repair
+
+benefit_descriptions:
+    - builds directly from CAD files. The laser deposition system builds the part, layer by layer. It can build complex shapes,
+        prototyping & manufacturing some parts in far less time than any other technique .
+    - LMD can be used in any industry which requires the creation or repair of high-value or bespoke parts ,
+        especially those on the larger scale. Aerospace, oil & gas, power and tooling sectors .
+    - It is used to repair high-value parts such as the aeroengine components & the military vehicles.
+        It is used in tipping of turbine blades, in surfacing of oil &  gas drilling components .
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - laptop
+    - bolt
+    - dollar
+
+material_list:
+    - Aluminum
+    - Inconel
+    - Maraging Steel
+    - Stainless Steel
+    - Titanium
+    - Cobalt Chromium
+    - Nickel Iron Alloy
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 7 days
+    - $$$
+    - 1 µm
+    - medium
+    - 5-10

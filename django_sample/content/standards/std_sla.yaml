@@ -1,0 +1,14 @@
+file_name: std_sla
+
+techno: SLA
+picture: quotation/img/technos/sla-1.jpg
+text: "
+    +/- 0.100mm, or +/- 0.0250mm per mm, whichever is greater. Build area up to 150mm x 150mm x 170mm.
+
+
+    Theoretical maximum build volume of 110mm x 110mm x 150mm.
+
+
+    Minimum feature size of 0.050” can be built with consistency.
+    Rubber-like materials represent an approximation of shore A values and may vary between geometries.
+    "

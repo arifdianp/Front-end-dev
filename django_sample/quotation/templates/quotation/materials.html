@@ -1,0 +1,181 @@
+{% extends "quotation/base.html" %}
+{% load customtags %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quotation/css/carousel.css' %}" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="position:fixed;">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active techno-background">
+        {%if material%}
+      <img class="first-slide" style= "background:url({%static material|dicGet:'background_image'%});background-size:auto 180%;background-position:50% 80%;">
+      {%else%}
+      <img class="first-slide" style= "background:url({%static 'quotation/img/materials/materials-background.jpg'%});background-size:auto;background-position:51% 2%;">
+      {%endif%}
+      <img class="slide-filter">
+
+        <div class="carousel-caption d-md-block text-left" style="text-align:center;">
+            {%if material%}
+          <h1>{{material|dicGet:'long_name'}}</h1>
+          <p><a class="btn btn-lg btn-red" href="{% url 'quick-quote1' %}" role="button">Get a Quote</a></p>
+          {%else%}
+          <h1>Our Materials</h1>
+          <p><a class="btn btn-lg btn-red" href="{% url 'quick-quote1' %}" role="button">Get a Quote</a></p>
+          {%endif%}
+          <!-- <p>Upload your design to get an instant quote and your prototype produced in 5 working days</p> -->
+          <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'quick-quote1' %}" role="button">Start</a></p> -->
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="carousel-overlay-transparent" style="height:25rem"></div>
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div id="content-container" class="parallax-container" style="
+    {%if techno%}
+    background:url({% static material|dicGet:'background_image'%});
+    {%else%}
+    background:url({% static 'quotation/img/materials/materials-background.jpg'%});
+    {%endif%}
+    background-size:auto 180%;background-position:50% 10%;background-attachment: fixed;">
+
+
+  <div class="content-background">
+          <!-- START THE FEATURETTES -->
+          <!-- <hr class="featurette-divider"> -->
+          {%if material%}
+          <div class="row text-center" style="padding-top:50px;">
+              <div class="col-lg-12">
+                  <h2>Other Materials</h2>
+              </div>
+          </div>
+          {%endif%}
+          <div class="row text-left px-sm-5" style="padding-top:10px;padding-bottom:10px;">
+              <div class="col-lg-12">
+                  <h3 class="color2">Metal</h3>
+              </div>
+          </div>
+          <div class="d-flex flex-wrap">
+              {%for material1 in material_list%}
+              {%if material1|dicGet:'type'|lower == "metal"%}
+              <div class="card-container-centered" itemscope itemtype="http://schema.org/ProductModel">
+                    <div class="card material-card" style="background-image:url({% static material1|dicGet:'small_image_1'%})">
+                      <div class="card-block parked">
+                          <div class="row">
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <h4 class="card-title" data-short-title="{{material1|dicGet:'short_name'}}" data-long-title="{{material1|dicGet:'long_name'}}" itemprop="material">{{material1|dicGet:'long_name'}}</h4>
+                                  <p class="card-text"></br>{{material1|dicGet:'small_description'}}</p></br>
+                                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                              </div>
+                              </br>
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Characteristics:</h6>
+                                  {% for characterisic in material1|dicGet:'characterisic_titles'%}
+                                  <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                      <i class="fa fa-{{material1|dicGet:'characterisic_icons'|index:forloop.counter0}}" style="margin-right:10px; display:inline-block;"></i>
+                                      <p>{{characterisic}}</p>
+                                  </div>
+                                  {%endfor%}
+                                  </br>
+                                  {%if material1|dicGet:'application_titles'%}
+                                      <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Applications:</h6>
+                                      {% for application in material1|dicGet:'application_titles'%}
+                                      <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                          <i class="fa fa-bullseye" style="margin-right:10px; display:inline-block;"></i>
+                                          <p>{{application}}</p>
+                                      </div>
+                                      {%endfor%}
+                                  {%elif material1|dicGet:'technology_list'%}
+                                      <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Technologies:</h6>
+                                      {% for technology in material1|dicGet:'technology_list'%}
+                                      <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                          <i class="fa fa-cube" style="margin-right:10px; display:inline-block;"></i>
+                                          <p>{{technology}}</p>
+                                      </div>
+                                      {%endfor%}
+                                  {%endif%}
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+              {%endif%}
+              {%endfor%}
+          </div>
+          <div class="row text-left px-sm-5" style="padding-top:10px;padding-bottom:10px;">
+              <div class="col-lg-12">
+                  <h3 class="color2">Plastic</h3>
+              </div>
+          </div>
+          <div class="d-flex flex-wrap">
+              {%for material1 in material_list%}
+              {%if material1|dicGet:'type'|lower == "plastic"%}
+              <div class="card-container-centered" itemscope itemtype="http://schema.org/ProductModel">
+                    <div class="card material-card" style="background-image:url({% static material1|dicGet:'small_image_1'%})">
+                      <div class="card-block parked">
+                          <div class="row">
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <h4 class="card-title" data-short-title="{{material1|dicGet:'short_name'}}" data-long-title="{{material1|dicGet:'long_name'}}" itemprop="material">{{material1|dicGet:'long_name'}}</h4>
+                                  <p class="card-text"></br>{{material1|dicGet:'small_description'}}</p></br>
+                                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                              </div>
+                              </br>
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Characteristics:</h6>
+                                  {% for characterisic in material1|dicGet:'characterisic_titles'%}
+                                  <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                      <i class="fa fa-{{material1|dicGet:'characterisic_icons'|index:forloop.counter0}}" style="margin-right:10px; display:inline-block;"></i>
+                                      <p>{{characterisic}}</p>
+                                  </div>
+                                  {%endfor%}
+                                  </br>
+                                  {%if material1|dicGet:'application_titles'%}
+                                      <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Applications:</h6>
+                                      {% for application in material1|dicGet:'application_titles'%}
+                                      <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                          <i class="fa fa-bullseye" style="margin-right:10px; display:inline-block;"></i>
+                                          <p>{{application}}</p>
+                                      </div>
+                                      {%endfor%}
+                                  {%elif material1|dicGet:'technology_list'%}
+                                      <h6><i class="fa fa-arrow-right" style="margin-right:10px; display:inline-block;"></i> Technologies:</h6>
+                                      {% for technology in material1|dicGet:'technology_list'%}
+                                      <div class="d-flex align-items-center align-items-center">&emsp;&emsp;
+                                          <i class="fa fa-cube" style="margin-right:10px; display:inline-block;"></i>
+                                          <p>{{technology}}</p>
+                                      </div>
+                                      {%endfor%}
+                                  {%endif%}
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+              {%endif%}
+              {%endfor%}
+          </div>
+  </div>
+
+  <div class="transparent-background d-flex justify-content-center align-items-center" style="height:300px;">
+      <h2></h2>
+  </div>
+
+
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="{% static 'quotation/js/ie10-viewport-bug-workaround.js' %}"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+{% endblock scripts %}

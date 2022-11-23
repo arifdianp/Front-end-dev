@@ -1,0 +1,29 @@
+file_name: pla
+short_name: PLA
+long_name: Polylactic Acid
+type: plastic
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/pla-1.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description:  Biodegradable and bioactive thermoplastic aliphatic polyester derived from renewable resources
+
+# list of benefits
+characterisic_titles:
+    - Biodegradable
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - leaf
+
+application_titles:
+
+technology_list:
+    - FDM
+    - CNC Plastic
+    - Rapid Molding

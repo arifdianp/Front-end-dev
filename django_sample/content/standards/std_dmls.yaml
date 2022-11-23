@@ -1,0 +1,13 @@
+file_name: std_dmls
+
+techno: DMLS
+picture: quotation/img/technos/3dpowdermetal-2.png
+text: "
+    +/- 0.050mm is typical for positive features, and +/- 0.100mm – 0.150mm for negative features such as holes, but will vary between geometries and materials (e.g. stainless versus aluminum).
+
+
+    Stress, supports and other geometry considerations may cause deviation in tolerances and flatness.  Items and geometries which require strict flatness are not a good fit for this process.
+
+
+    Theoretical maximum build volume of 250mm x 250mm x 230mm.
+    "

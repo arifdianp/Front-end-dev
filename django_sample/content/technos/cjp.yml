@@ -1,0 +1,65 @@
+file_name: cjp
+
+short_name: CJP
+long_name: Color Jet Printing
+type : plastic
+
+catch_phrase: Beautiful full-color prototypes
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/sls_background.jpg
+small_image_1: quotation/img/technos/polyjet-1.jpg
+small_image_2: quotation/img/technos/polyjet-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+
+# list of benefits
+benefit_titles:
+    - Controlled
+    - Mastered
+
+benefit_descriptions:
+    - BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+    - BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+        BLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla blaBLA bla bla bla bla BLA bla bla bla bla BLA bla bla bla bla
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - key
+    - hashtag
+
+material_list:
+    - ABS
+    - Nylon
+    - Metal
+
+key_feature_titles:
+    - lead time
+    - cost
+    - accuracy
+    - geometrical complexity
+    - recommended batch size
+
+key_feature_values:
+    - 7 days
+    - $$$
+    - 1 µm
+    - medium
+    - 5-10

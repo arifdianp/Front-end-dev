@@ -1,0 +1,29 @@
+file_name: eva
+short_name: EVA
+long_name: Ethyl Vinyl Acetate
+type: plastic
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/eva-1.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: It’s an extremely elastic material that can be sintered to form a porous material similar to rubber, yet with excellent toughness.
+
+# list of benefits
+characterisic_titles:
+    - High Elasticity
+    - Toughness
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - bolt
+
+application_titles:
+
+technology_list:
+    - Rapid Molding

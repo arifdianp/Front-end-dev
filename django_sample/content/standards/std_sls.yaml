@@ -1,0 +1,13 @@
+file_name: std_sls
+
+techno: SLS
+picture: quotation/img/technos/sls-1.jpg
+text: "
+    +/- 0.150mm or +/- 0.050mm per mm, whichever is greater. Build area up to 330mm x 330mm x 400mm.
+
+
+    Parts with thicker geometries, large broad parts, and parts with uneven wall thicknesses may deviate due to thermal shrinkage and stress.
+
+
+    Theoretical maximum build volume of 250mm x 250 x 230mm. (100mm max dimension preferred).
+    "

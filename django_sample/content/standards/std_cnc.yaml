@@ -1,0 +1,16 @@
+file_name: std_cnc
+
+techno: CNC
+picture: quotation/img/technos/cnc-metal-1.jpg
+text: "
+    +.150mm/-.150mm local tolerances across most geometries. +.010/-.010mm for plastics. Will vary for large parts, specifically when holding flatness over large parts after heat treatment.
+
+
+    Finish requirements for “As Milled” finish will have a minimum 125 surface finish for CNC parts.
+
+    Tapped holes not explicitly called out as Features on the quoted CAD model may be machined to the diameters specified in that model.
+
+    Minimum wall thicknesses are expected to be 0.5mm for metals, 0.8mm for plastics.
+
+    No surface treatments (e.g. anodize, bead blast, iridite, powder coat, etc.) will be applied unless you have paid for them and we have specifically acknowledged them.
+    "

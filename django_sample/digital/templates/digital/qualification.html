@@ -1,0 +1,168 @@
+{%extends 'digital/base.html'%}
+{% load static %}
+{%block content%}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card card-qualif active" data-toggle="tab" href="#qualif-step-1">
+                    <div class="content">
+                        <div class="row" style="display:flex;align-items:center">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-danger text-center">
+                                    <i class="ti-server"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers" style="text-align:left;">
+                                    <!-- <p>Capacity</p> -->
+                                    Step 1
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer" style="text-align:center;">
+                            <hr />
+                            <div class="stats">
+                                step <strong>1</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="ti-angle-double-right icon-nochange" style="position:absolute;display:inline-block;right: -20px;top: 59px;"></i>
+                    <i class="ti-arrow-down icon-nochange" style="position:absolute;display:inline-block;right: 47%;top: -20px;"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card card-qualif" data-toggle="tab" href="#qualif-step-2">
+                    <div class="content">
+                        <div class="row" style="display:flex;align-items:center">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-warning text-center">
+                                    <i class="ti-pie-chart"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers" style="text-align:left;">
+                                    <!-- <p>Capacity</p> -->
+                                    Step 2
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer" style="text-align:center;">
+                            <hr />
+                            <div class="stats">
+                                step <strong>2</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="ti-angle-double-right" style="position:absolute;display:inline-block;right: -20px;top: 59px;"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card card-qualif" data-toggle="tab" href="#qualif-step-3">
+                    <div class="content">
+                        <div class="row" style="display:flex;align-items:center">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-info text-center">
+                                    <i class="ti-timer"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers" style="text-align:left;">
+                                    <!-- <p>Capacity</p> -->
+                                    Step 3
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer" style="text-align:center;">
+                            <hr />
+                            <div class="stats">
+                                step <strong>3</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="ti-angle-double-right" style="position:absolute;display:inline-block;right: -20px;top: 59px;"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card card-qualif" data-toggle="tab" href="#qualif-step-4">
+                    <div class="content">
+                        <div class="row" style="display:flex;align-items:center">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+                                    <i class="ti-shine"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers" style="text-align:left;">
+                                    <!-- <p>Capacity</p> -->
+                                    Step 4
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer" style="text-align:center;">
+                            <hr />
+                            <div class="stats">
+                                step <strong>4</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-content">
+			        <div class="tab-pane active" id="qualif-step-1">
+                        <div class="card card-qualif-detail">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-lg-12" style="text-align:center;">
+                                        <h3>Step 1</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="qualif-step-2">
+                        <div class="card card-qualif-detail">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-lg-12" style="text-align:center;">
+                                        <h3>Step 2</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="qualif-step-3">
+                        <div class="card card-qualif-detail">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-lg-12" style="text-align:center;">
+                                        <h3>Step 3</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="qualif-step-4">
+                        <div class="card card-qualif-detail">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-lg-12" style="text-align:center;">
+                                        <h3>Step 4</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock content%}
+
+{%block extrascript%}
+<script src="{% static 'digital/js/qualification.js' %}"></script>
+{%endblock extrascript%}

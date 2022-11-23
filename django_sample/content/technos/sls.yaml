@@ -1,0 +1,53 @@
+file_name: 50_sls
+
+short_name: SLS
+long_name: Selective Laser Sintering
+type : plastic
+catch_phrase: Functional, Anisotrophic and Scalable
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/sls_background.jpg
+small_image_1: quotation/img/technos/sls-1.jpg
+small_image_2: quotation/img/technos/sls-2.jpg
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: SLS technology uses a laser to heat and bond small grains of plastic, ceramic, glass and other materials into layers which ultimately form a 3D structure.
+  SLS is considered as a fully anysotropic process and therefore is very suitable for funtional prototypes.
+# list of benefits
+benefit_titles:
+    - Concept Models
+    - Rapid Prototyping
+    - Direct Digital Manufacturing
+
+benefit_descriptions:
+    - The speed and versatility of SLS lets product developers create physical snapshots of their designs through the iterative process.
+    - SLS can be used to create fully-functional prototypes, complete with moving parts, as well as all-in-one assemblies.
+    - The high accuracy and consistency of SLS makes it an ideal way to build large quantities of discrete or customized parts.
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - cube
+    - bolt
+    - laptop
+
+material_list:
+    - Nylon
+    - Glass-Reinforced Nylon
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 4 days
+    - $$
+    - 50 µm
+    - high
+    - 5-100

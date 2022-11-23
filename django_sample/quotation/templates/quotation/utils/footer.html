@@ -1,0 +1,34 @@
+<!-- FOOTER -->
+<div class="footer-container">
+    <div class="container" style="height:100%;padding-top:50px;padding-bottom:10px;">
+        <footer >
+                <div class="d-flex align-items-center flex-wrap" style="margin-bottom:40px">
+                    <div class="d-flex flex-column align-items-center ml-auto" itemscope itemtype="http://schema.org/LocalBusiness">
+                        <img class="filter-white" src="{%static 'quotation/icons/sp3d_big.png'%}" width="auto" height="40" style="margin-right:20px;max-width:80px;" alt="sp3d logo" itemprop="logo">
+                        <div style="margin-top:40px" itemscope itemtype="http://schema.org/LocalBusiness"><span itemprop="address" style="color:#ffffff;">91C Lavender Street</br>338719 Singapore</br></span></div>
+                         <div itemscope itemtype="http://schema.org/ContactPoint" style="color:#ffffff;">contact: <span itemprop="telephone">+65 69090461</span></div>
+                    </div>
+                    <div class="d-flex flex-column align-items-start ml-auto">
+                        <iframe itemscope itemprop="hasMap" itemtype="http://schema.org/Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.3869370511154!2d103.86118997594816!3d1.3110328997597767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19cbdf6d747d%3A0x947bc9194587830b!2s91+Lavender+St%2C+Singapore+338719!5e0!3m2!1sen!2ssg!4v1508491843976" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        
+                    </div>
+                    <div class="d-flex flex-column align-items-start ml-auto">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                        <a class="nav-link" href="{% url 'technologies' %}">TECHNOLOGIES</a>
+                        <a class="nav-link" href="{% url 'materials' %}">MATERIALS</a>
+                    </div>
+
+                    <div class="d-flex flex-column ml-auto">
+                        <a class="nav-link" href="{% url 'standards' %}?section=prototype">STANDARDS</a>
+                        <a class="nav-link special" href="{% url 'quick-quote1' %}?section=prototype" itemscope itemtype="http://schema.org/QuoteAction" itemprop="target">QUOTE</a>
+                        <a class="nav-link" href="{% url 'quick-quote1' %}?section=contact">CONTACT</a>
+                    </div>
+
+
+                </div>
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2019 Spare Parts 3D, Inc. &middot; <a href="" data-toggle="modal" data-target="#modal-privacy">Privacy</a> &middot; <a href="" data-toggle="modal" data-target="#modal-terms">Terms</a> &middot; <a href="" data-toggle="modal" data-target="#modal-standards">Standards</a></p>
+
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+{% extends "quotation/base.html" %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'quotation/css/base.css' %}" />
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'quotation/css/quick-quote.css' %}" /> -->
+<link rel="stylesheet" href="{% static 'quotation/css/dropzone.css' %}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div style="padding-top:100px;padding-bottom:50px;height:1000px;min-height:1000px;box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);background:url({% static 'quotation/img/technical-drawings.jpg'%});background-size:auto 130%;background-position:0% 0%;background-attachment: fixed;">
+
+    <!-- <div class="dark-filter"></div> -->
+    <script>var request_success = "{{request_success}}"</script>
+    <div class="container d-flex justify-content-center align-items-center" style="z-index:10;" >
+        <div id="request-success" class="lead" style="color:#fff;font-size:1.5rem;margin-top:200px;{%if not request_success%}display:none{%endif%}">
+            <b>Your request has been received, we will answer in the shortest time ! </b></br>
+            Thank you from <img class="hidden-md-down filter-white" src="{%static 'quotation/icons/sp3d_big.png'%}" width="auto" height="40" style="margin:0px 10px 0px 10px" alt=""> team !</br></br>
+            Back to quotation in <span class="timer"></span>
+        </div>
+    </div>
+
+
+    <div id="quotation-container" style="position:relative;z-index:10;{%if request_success%}display:none{%endif%}">
+        <div class="d-flex justify-content-center nav-pills flex-wrap" style="z-index:10">
+            <ul class="nav justify-content-center flex-wrap" role="tablist">
+                <!--<li class="nav-item" style="margin:3px 0px 3px 0px;">
+                    <button id="fmd_live_quote_btn" class="btn btn-lg quote-choice-button mx-3" data-toggle="tab" href="#fdm" role="tab">FDM Live Quote</button>
+                </li>-->
+                <li class="nav-item">
+                    <button class="btn btn-lg quote-choice-button mx-3 active" data-toggle="tab" href="#other" role="tab">All Quotes</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane" id="fdm" role="tabpanel">
+                <div class="digifabster-container" style="margin-top:20px;margin-bottom:50px">
+                    <div class="row" style="max-width:100%">
+                        <div class="col-lg-12 text-center" style="padding:0">
+                            <iframe id="df-frame" src="https://digifabster.com/SP3D/client/upload/?mode=iframe" frameborder="0" width="900" height="700"><p>Your browser may not support iframes.</p></iframe>
+                        </div>
+                    </div>
+                </div><!-- /.container -->
+            </div>
+
+            <div class="tab-pane active" id="other" role="tabpanel">
+                <div class="container">
+                    <div class="d-flex justify-content-center align-items-center flex-wrap">
+                        {%include 'quotation/utils/quote_form.html'%}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/Easy-jQuery-International-Telephone-Input-Plugin-IntlInputPhone/js/intlInputPhone.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.input-phone').intlInputPhone();
+  })
+</script>
+{% endblock scripts %}

@@ -1,0 +1,13 @@
+file_name: std_fdm
+
+techno: FDM
+picture: quotation/img/technos/fdm-1.jpg
+text: "
+    +/- 0.150mm or +/- 0.050mm per inch, whichever is greater. Build area up to 220mm x 130mm x 100mm.
+
+
+    Minimum resolvable feature size, including positive text features, is at least 1.5mm (2mm or greater is safest).
+
+
+    Theoretical maximum build volume of 250mm x 150mm x 150mm.
+    "

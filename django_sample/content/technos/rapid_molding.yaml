@@ -1,0 +1,78 @@
+file_name: 99_rapid_molding
+
+short_name: Rapid Molding
+long_name: 3D Printed Plastic Mold
+type : plastic
+
+catch_phrase: Injected prototypes in a couple of days
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/rapid-molding-background.jpg
+small_image_1: quotation/img/technos/rapid-molding-1.jpg
+small_image_2: quotation/img/technos/rapid-molding-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: Injection molding is a high speed, automated and versatile process that can produce
+    high precision complex three dimensional parts from any plastic material. The injection molding
+    process is very fast and economical for mass production.
+
+
+    However injection molding tools take from weeks to months to build. Very often, design mistakes are
+    made and mold changes are needed. Tools may go back and forth a few times from the producer to the
+    tool builder until the final part design and quality are achieved, increasing costs and
+    product time-to-market.
+
+
+    To solve this issue and produce your prototypes by injection with the actual final material, just choose Rapid Molding.
+    We 3D printed a mold with high-temperature thermoset material to inject your part.
+
+# list of benefits
+benefit_titles:
+    - Use of injection material
+    - Smooth Surface
+    - Small production volume
+
+benefit_descriptions:
+    - With Rapid Molding you can use and test the actual material selected for the mass production. Using high
+        temperature termoset material to produce the mold core & cavities with a deflexion temperature of 269°C, we enable you
+        to use a wide range of materials.
+    - The use of the SLA technology to produce the mold provide the smoothest surface quality with a dimensional accuracy as
+        low as 50 microns.
+    - Launch a small pre-series with your rapid mold, up to 100 units can be produce.
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - thermometer-full
+    - envira
+    - line-chart
+
+material_list:
+    - LDPE
+    - HDPE
+    - PP
+    - PP + G
+    - PA
+    - POM
+    - ABS
+    - ABS + PC
+    - TPE
+    - EVA
+    - PS
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 6 days
+    - $$
+    - 50 µm
+    - medium
+    - 50-100

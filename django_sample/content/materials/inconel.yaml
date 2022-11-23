@@ -1,0 +1,34 @@
+file_name: inconel
+short_name: Inconel
+long_name: Inconel
+type: metal
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/inconel-1.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: Inconel alloys are oxidation- and corrosion-resistant materials well suited for service in extreme environments subjected to high pressure and kinetic energy.
+
+# list of benefits
+characterisic_titles:
+    - Solid and flexible
+    - High Precision
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - bolt
+
+
+application_titles:
+    - Gas turbine
+    - Turbo charge
+    - Rocket engine
+
+technology_list:
+    - LMD
+    - 3D Metal Powder

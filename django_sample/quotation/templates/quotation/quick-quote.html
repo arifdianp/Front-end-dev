@@ -1,0 +1,92 @@
+{% extends "quotation/base.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'quotation/css/quick-quote.css' %}" />
+<link rel="stylesheet" href="{% static 'quotation/css/dropzone.css' %}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="dropzone">
+                <div class="dropzone needsclick" id="my-awesome-dropzone">
+                    <div class="dz-message needsclick">
+                        Drop files here or click to upload.<br />
+                        <span class="note needsclick">(files accepted: <strong>.stl, .sldprt, .step</strong>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.container -->
+
+{%include 'quotation/utils/model_template.html'%}
+
+<footer class="footer-quote">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-2 align-self-end ">
+                <div class="form-group">
+                    <label class="text-muted">Production Time</label>
+                    <select class="form-control" name="leadTime">
+                        <option value="5">5 Business Days</option>
+                        <option value="3">3 Business Days</option>
+                        <option value="2">2 Business Days</option>
+                        <option value="1">1 Business Day</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 align-self-end ">
+                <div class="form-group">
+                    <label class="text-muted">Shipping Time</label>
+                    <select class="form-control" name="shippingTime">
+                        <option value="3">3-5 Business Days</option>
+                        <option value="2">2 Business Days</option>
+                        <option value="1">1 Business Day</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3 line-item-prices">
+                <div class="form-groupundefined">
+                    <label class="text-muted">Parts Total</label>
+                    <span class="float-right"><!-- react-text: 113 -->Manual RFQ<!-- /react-text --></span>
+                </div>
+                <div class="form-group hidden-xs-down" style="margin-bottom:0px">
+                    <label class="text-muted">Expedite Charge</label>
+                    <span class="float-right"><!-- react-text: 117 -->$0.00<!-- /react-text --></span>
+                </div>
+                <div class="form-group hidden-sm-down" style="margin-bottom:0px">
+                    <label class="text-muted">Shipping</label>
+                    <span class="float-right"><!-- react-text: 121 -->$14.15<!-- /react-text --></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="alert alert-info text-center">To continue, please make sure that all of your models have Units, a Process, and a Material.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<!-- <script>jQuery.noConflict();</script> -->
+<script src="{% static 'quotation/js/three/three.min.js' %}"></script>
+<script src="{% static 'quotation/js/three/loaders/STLLoader1.js' %}"></script>
+<script src="{% static 'quotation/js/three/Detector.js' %}"></script>
+<script src="{% static 'quotation/js/three/libs/stats.min.js' %}"></script>
+<script src="{% static 'quotation/js/three/libs/TrackballControls.js' %}"></script>
+<script src="{% static 'quotation/js/dropzone.js' %}"></script>
+<script>
+// prevent dropzones to initialize when loaded, so that we initialize them with our own options below
+    Dropzone.autoDiscover = false;
+    var csrftoken = '{{ csrf_token }}';
+</script>
+<script src="{% static 'quotation/js/quick-quote.js' %}"></script>
+
+{% endblock scripts %}

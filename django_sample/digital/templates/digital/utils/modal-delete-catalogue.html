@@ -1,0 +1,19 @@
+{% load digital_filters %}
+<div id="modalDeleteCatalogue" class="modal fade modal-drop-pic" role="dialog">
+  <div class="modal-dialog">
+      <form enctype="multipart/form-data" method="post" action="delete-catalogue/" id="formDeleteCatalogue">
+          {%csrf_token%}
+          <input type="hidden" name="id-catalogue" required="">
+    <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="background-color:#d43a3a">
+                <div>
+                    <div><span class='fa fa-warning' style="font-size:3rem;"></span></div>
+                    <div><span>Delete Catalogue ?</span></div>
+                    <div><button type="submit" class="btn btn-success" style=margin-top:30px;>YES</button></div>
+                </div>
+            </div>
+        </div>
+     </form>
+  </div>
+</div>

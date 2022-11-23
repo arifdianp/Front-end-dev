@@ -1,0 +1,33 @@
+file_name: ldpe
+short_name: LDPE
+long_name: Low-density polyethylene
+type: plastic
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/ldpe-1.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: Widely used for manufacturing various containers, dispensing bottles, wash bottles, tubing, plastic bags
+
+# list of benefits
+characterisic_titles:
+    - Chemical resist.
+    - Tough
+    - Flexible
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - bolt
+    - superpowers
+
+
+application_titles:
+
+technology_list:
+    - Rapid Molding
+    - CNC Plastic

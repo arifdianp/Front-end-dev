@@ -1,0 +1,102 @@
+{% load digital_filters %}
+<div id="modalPartFilter" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form id="form_part_filters_analysis" action="update-filters/" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+              <div class="modal-header" style="background-color:#003F71;color:#ffffff;">
+                <input type="submit" class="btn btn-success show-wait" value="Save" name="_save" style="float:right;">
+                <h4 class="modal-title"> <i class="fa fa-cube" style="margin-right:20px;font-size:2.3rem;"></i>Search Filters</h4>
+              </div>
+              <div class="modal-body" style="background-color:#f5f5f5">
+                  <div class="row">
+                      <div class="col-xs-12">
+                          {%comment%}{{formFilters.as_p}}{%endcomment%}
+                          <p class="form-group">
+                              <label class="fw-700">Printable:</label>
+                              {{formFilters.printable}}
+                          </p>
+                          <div class="form-group">
+                              <label class="fw-700">Analysis:</label>
+                              {{formFilters.analysis}}
+                          </div>
+                          
+                           <div class="form-group">
+                              <label class="fw-700">Reorder Needed:</label>
+                              
+                                  {{formFilters.obsolete}} <label class="fw-500" for="id_obsolete" style="margin-right:15px;">Obsolete only</label>
+                                  {{formFilters.longtail}} <label class="fw-500" for="id_longtail" style="margin-right:15px;">Longtail only</label>
+                                  {{formFilters.shortage}} <label class="fw-500" for="id_shortage" style="margin-right:15px;">Shortage only</label>
+                                  {{formFilters.pex}} <label class="fw-500" for="id_pex" style="margin-right:15px;">PEX only</label>
+                                  {%comment%}{{formFilters.viable}} <label class="fw-500" for="id_viable" style="margin-right:15px;">Viable Parts only</label>{%endcomment%}
+                             
+                              {{formFilters.reorder}}
+                          </div>
+                          <div class="form-group">
+                              <label class="fw-700">Appliance Family:</label>
+                             <input type='text' class='form-control form-search' placeholder="filter"></input>
+                             <p><label for="all-appliance" style="-webkit-padding-start: 40px"><input class="cb-all" id='all-appliance' type='checkbox'></input>Check All</label></p>
+                             {{formFilters.appliance_family}}
+                         </div>
+                         <div class="form-group">
+                            <label class="fw-700">Part Type:</label>
+                            <input type='text' class='form-control form-search' placeholder="filter"></input>
+                            <p><label for="all-parttype" style="-webkit-padding-start: 40px"><input class="cb-all" id='all-parttype' type='checkbox'></input>Check All</label></p>
+                            {{formFilters.part_type}}
+                        </div>
+                        <div class="form-group">
+                           <label class="fw-700">Technology used:</label>
+                           <input type='text' class='form-control form-search' placeholder="filter"></input>
+                           <p><label for="all-technology" style="-webkit-padding-start: 40px"><input class="cb-all" id='all-technology' type='checkbox'></input>Check All</label></p>
+                           {{formFilters.technology}}
+                       </div>
+                       <div class="form-group">
+                          <label class="fw-700">Material Used:</label>
+                          <input type='text' class='form-control form-search' placeholder="filter"></input>
+                          <p><label for="all-material" style="-webkit-padding-start: 40px"><input class="cb-all" id='all-material' type='checkbox'></input>Check All</label></p>
+                          {{formFilters.material}}
+                      </div>
+
+
+                          <!-- <label>Printability:</label>
+                          <div class="form-group">
+                              <label class="radio-inline"><input type="radio" name="flt-printable" value="all-time">All Time</label>
+                              <label class="radio-inline"><input type="radio" name="flt-printable" value="identified">Identified</label>
+                              <label class="radio-inline"><input type="radio" name="flt-printable" value="printable">Printable</label>
+                          </div>
+                          <label>Analysis:</label>
+                          <div class="form-group">
+                              <label class="radio-inline"><input type="radio" name="flt-analysis" value="all-parts">All Parts</label>
+                              <label class="radio-inline"><input type="radio" name="flt-analysis" value="last-analysis">Last Analysis</label>
+                          </div>
+                          <div class="form-group">
+                              <input type="checkbox" id="flt-obsolete" class="styled-checkbox" name="flt-obsolete"><label for="flt-obsolete" class="flex-centered fw-500">Obsolete Parts</label>
+                              <input type="checkbox" id="flt-longtail" class="styled-checkbox" name="flt-longtail"><label for="flt-longtail" class="flex-centered fw-500">Long-Tail Parts</label>
+                              <input type="checkbox" id="flt-viable" class="styled-checkbox" name="flt-viable"><label for="flt-viable" class="flex-centered fw-500">Financially viable</label>
+                          </div>
+                          <div class="form-group">
+                              <input type="checkbox" id="flt-reorder" class="styled-checkbox" name="flt-reorder"><label for="flt-reorder" class="flex-centered fw-500">Need Reorder</label>
+                          </div>
+                          <div class="form-group">
+                              <input type="checkbox" id="flt-reorder-y1" class="styled-checkbox" name="flt-reorder-y1" checked><label for="flt-reorder-y1" class="fw-500">Year 1</label>
+                              <input type="checkbox" id="flt-reorder-y2" class="styled-checkbox" name="flt-reorder-y2" checked><label for="flt-reorder-y2" class="fw-500">Year 2</label>
+                              <input type="checkbox" id="flt-reorder-y3" class="styled-checkbox" name="flt-reorder-y3" checked><label for="flt-reorder-y3" class="fw-500">Year 3</label>
+                              <input type="checkbox" id="flt-reorder-y4" class="styled-checkbox" name="flt-reorder-y4" checked><label for="flt-reorder-y4" class="fw-500">Year 4</label>
+                              <input type="checkbox" id="flt-reorder-y5" class="styled-checkbox" name="flt-reorder-y5" checked><label for="flt-reorder-y5" class="fw-500">Year 5</label>
+                          </div> -->
+                          
+                      </div>
+                  </div>
+
+              </div>
+          
+              <div class="modal-footer">
+                 <input type="submit" class="btn btn-success" value="Save" name="_save">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
+    </div>
+  </div>
+</div>

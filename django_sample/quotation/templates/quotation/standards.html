@@ -1,0 +1,71 @@
+{% extends "quotation/base.html" %}
+{% load customtags %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quotation/css/carousel.css' %}" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="position:fixed;">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active techno-background">
+      <img class="first-slide" style= "background:url({%static 'quotation/img/technical-drawings.jpg'%});background-size:auto;background-position:51% 2%;">
+      <img class="slide-filter">
+        <div class="carousel-caption d-md-block text-left" style="text-align:center;">
+          <h1>Our Standards</h1>
+          <!-- <p>Upload your design to get an instant quote and your prototype produced in 5 working days</p> -->
+          <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'quick-quote1' %}" role="button">Start</a></p> -->
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="carousel-overlay-transparent" style="height:25rem"></div>
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div id="content-container" class="parallax-container" style="background:url({%static 'quotation/img/technical-drawings.jpg'%});background-size:auto 180%;background-position:50% 10%;background-attachment: fixed;">
+
+
+  <div class="content-background">
+
+      <div class="container marketing" style="padding-top:0px;">
+          {% for standard in standards%}
+          <div class="row featurette">
+            <div class="col-md-9 {%if forloop.counter|divisibleby:2%}push-md-3{%endif%}">
+              <h4 class="featurette-heading color3" style="margin-top:0">{{standard|dicGet:'techno'}} <span class="color2"></span></h5>
+              <p class="lead color2">{{standard|dicGet:'text'|linebreaks}}</p>
+            </div>
+            <div class="col-md-3 {%if forloop.counter|divisibleby:2%}pull-md-9{%endif%}">
+                <div class="d-flex align-items-center" style="height:100%">
+                    <img class="featurette-image img-fluid mx-auto"style="width:300px" src="{% static standard|dicGet:'picture'%}" alt="SLS 3 printing">
+                </div>
+            </div>
+          </div>
+          <hr class="featurette-divider">
+
+          {%endfor%}
+
+          <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+  </div>
+
+  <div class="transparent-background d-flex justify-content-center align-items-center" style="height:300px;">
+      <h2></h2>
+  </div>
+
+
+
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="{% static 'quotation/js/ie10-viewport-bug-workaround.js' %}"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+{% endblock scripts %}

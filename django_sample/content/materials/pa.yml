@@ -1,0 +1,29 @@
+file_name: pa
+short_name: PA
+long_name: Polyamide
+type: plastic
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/materials/materials-background.jpg
+small_image_1: quotation/img/materials/pa-1.png
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+small_description: Commonly used in textiles, automotive applications, carpets and sportswear due to their high durability and strength
+
+# list of benefits
+characterisic_titles:
+    - High durability
+    - High Strength
+
+# choose icons from this link: http://fontawesome.io/icons/
+characterisic_icons:
+    - superpowers
+    - bolt
+
+application_titles:
+
+technology_list:
+    - Rapid Molding

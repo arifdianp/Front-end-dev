@@ -1,0 +1,59 @@
+file_name: aluminum_casting
+
+short_name: Aluminum Casting
+long_name: Aluminum Casting
+type : metal
+
+catch_phrase: Fast and Affordable
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/aluminum-casting-background.jpg
+small_image_1: quotation/img/technos/aluminum-casting-1.jpg
+small_image_2: quotation/img/technos/aluminum-casting-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: Casting is a simple, inexpensive and versatile way of forming aluminum into a wide array of products.
+    Such items as power transmissions and car engines and the cap atop the Washington Monument were all produced through the aluminum casting process.
+    Most castings, especially large aluminum products, are usually made in sand molds.
+
+# list of benefits
+benefit_titles:
+    - Corrosion resistance
+    - light weight
+    - rigidity and durability
+
+
+benefit_descriptions:
+    - If you are looking to make a prototype that will last and will be used in harsh environments, aluminum casting will offer you very good results
+    - Aluminum is strong, but still is a very light-weighted metal, which can be handy for mobility, and exhibition purposed.
+    - This process is good to build a prototype which will last and endure mechanical stresses with good resistance
+
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - cube
+    - bolt
+    - bolt
+
+
+material_list:
+    - Aluminum
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 15 days
+    - $$
+    - 10 µm
+    - medium
+    - 1-5

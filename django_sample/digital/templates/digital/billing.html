@@ -1,0 +1,128 @@
+{% extends 'digital/base.html' %}
+{% load static %}
+{% block extrahead %}
+{% endblock extrahead %}
+{%block content%}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Revenue per Order</h4>
+                        <p class="category">Here are summed up all the orders and associated costs</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-billing-per-order">
+                            <thead>
+                                <th>ID</th>
+                                <th>Part</th>
+                                <th>Prod. Hours</th>
+                                <th>Material</th>
+                                <th>Misc.</th>
+                            </thead>
+                            <tbody>
+                                <tr data-toggle="collapse" href="#order-1" aria-expanded="false" class="clickable">
+                                    <td>25</td>
+                                    <td><strong>10</strong> Hinge Bearing</td>
+                                    <td>$105.95</td>
+                                    <td>$11.68</td>
+                                    <td>$8.23</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="padding:0;border:none;background-color:#F4F3EF">
+                                        <div id="order-1" class="collapse">
+                                            <div class="content">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <ul>
+                                                                <li>filament: 10 cm3</li>
+                                                                <li>post-proc. chemical: 1L</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <ul>
+                                                                <li>Tool change time: 10min</li>
+                                                                <li>Material change time: 5min</li>
+                                                                <li>post-proc.time: 15min</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <ul>
+                                                                <li>retrial: 2</li>
+                                                                <li>filament: 10 cm3</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>231</td>
+                                    <td><strong>2</strong> Brner knob</td>
+                                    <td>$58.21</td>
+                                    <td>$32.50</td>
+                                    <td>$2.56</td>
+                                </tr>
+                                <tr>
+                                    <td>123</td>
+                                    <td><strong>8</strong> Agitator Dog</td>
+                                    <td>$25.85</td>
+                                    <td>$46.24</td>
+                                    <td>$2.80</td>
+                                </tr>
+                                <tr>
+                                    <td>78</td>
+                                    <td><strong>4</strong> Rack wheel</td>
+                                    <td>$56.20</td>
+                                    <td>$32.2</td>
+                                    <td>$1.2</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><strong>6</strong> Blender Coupling</td>
+                                    <td>$105.95</td>
+                                    <td>$11.68</td>
+                                    <td>$8.23</td>
+                                </tr>
+                                <tr>
+                                    <td>1236</td>
+                                    <td><strong>75</strong> Sears Kenmore</td>
+                                    <td>$105.95</td>
+                                    <td>$11.68</td>
+                                    <td>$8.23</td>
+                                </tr>
+                                <tr>
+                                    <td>965</td>
+                                    <td><strong>36</strong> Dryer Pulley</td>
+                                    <td>$86.2</td>
+                                    <td>$65.2</td>
+                                    <td>$5.78</td>
+                                </tr>
+                                <tr>
+                                    <td>245</td>
+                                    <td><strong>10</strong> Washer Lock</td>
+                                    <td>$15.55</td>
+                                    <td>$21.68</td>
+                                    <td>$58.23</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{%endblock content%}
+
+{%block extrascript%}
+
+{%endblock extrascript%}

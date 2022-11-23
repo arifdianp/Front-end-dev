@@ -1,0 +1,58 @@
+file_name: 3d_metal_powder
+
+short_name: Metal Powder
+long_name: Metal Powder 3D printing
+type : metal
+catch_phrase: Precise and functional parts
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/3dpowdermetal-background.jpg
+small_image_1: quotation/img/technos/3dpowdermetal-1.jpg
+small_image_2: quotation/img/technos/3dpowdermetal-2.png
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: "One of these 3D printing technology that uses metal powders and precision lasers to quickly and accurately create complex parts from a 3D CAD file: Direct Metal Laser Sintering (DMLS), or Electron Beam Melting (EBM), Selective Laser Melting (SLM)"
+
+# list of benefits
+benefit_titles:
+    - Rapid Tooling
+    - Rapid Prototyping
+    - Direct Digital manufacturing
+
+benefit_descriptions:
+    - Because DMLS printers can print in metal, they are widely used for rapid tooling, i.e., creating fixtures and jigs.
+    - DMLS printers are used to make proof of concept models and fully functional late-stage prototypes.
+    - High-quality finish and durable materials have made DMLS printing a favorite technology for end-use products.
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - bolt
+    - cube
+    - laptop
+
+material_list:
+    - Aluminum
+    - Inconel
+    - Maraging Steel
+    - Stainless Steel
+    - Titanium
+    - Cobalt Chromium
+    - Nickel Iron Alloy
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 5 days
+    - $$
+    - 10 µm
+    - low-medium
+    - 5-10

@@ -1,0 +1,66 @@
+file_name: cnc_metal
+
+short_name: Metal CNC
+long_name: Metal CNC Machining
+type : metal
+
+catch_phrase: Rapid prototypes from metal
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/cnc-metal-background.jpg
+small_image_1: quotation/img/technos/cnc-metal-1.jpg
+small_image_2: quotation/img/technos/cnc-metal-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: CNC Machining is a process used in the manufacturing
+    sector that involves the use of computers to control machine tools.
+    Tools that can be controlled in this manner include lathes, mills, routers and grinders.
+    The CNC in CNC Machining stands for Computer Numerical Control.
+
+
+
+# list of benefits
+benefit_titles:
+    - Rapid Tooling
+    - Rapid Prototyping
+    - End-use Production
+
+benefit_descriptions:
+    - Because CNC machining services can be applied to virtually any material, it is perfect for rapid tooling, i.e., creating fixtures or molds.
+    - The range of materials available, low cost per unit, and speed of production makes CNC a great option for prototyping.
+    - High-quality finish, vast material options and precise tolerances have made CNC machining a favorable technology for end-use parts.
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - bolt
+    - circle-o
+    - circle-o
+
+material_list:
+    - Aluminum
+    - Brass/Bronze
+    - Copper
+    - Magnesium
+    - Stainless Steel
+    - Steel
+    - Titanium
+    - Zinc
+
+key_feature_titles:
+    - lead time
+    - cost
+    - accuracy
+    - geometrical complexity
+    - recommended batch size
+
+key_feature_values:
+    - 5 days
+    - $$
+    - 5 µm
+    - medium
+    - 5-10

@@ -1,0 +1,73 @@
+file_name: 70_sla
+
+short_name: SLA
+long_name: Stereolithography
+type : plastic
+catch_phrase: Accurate and Repeatable
+
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/sla-background.jpg
+small_image_1: quotation/img/technos/sla-1.jpg
+small_image_2: quotation/img/technos/sla-2.png
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: SLA machines are built around a large tank containing the liquid photopolymer (resin),
+    and the build platform. The UV laser focuses onto the surface of the resin,
+    tracing a cross-section of the 3D model.
+
+
+    The build platform then descends a distance equal to the thickness of a single layer,
+    and a resin-filled blade sweeps across the vat to recoat it with fresh material.
+    The process builds consecutive layers on top of the others until the part is finished.
+
+
+    This methods is ideal for making rapid, one-off prototypes in plastic, especially for transparent parts.
+    These prototypes can be used as-is, or to function as master patterns for our vacuum casting process.
+
+
+    Like with other 3D additive manufacturing processes, you can add complex internal features that can’t be made using traditional plastic manufacturing.
+
+# list of benefits
+benefit_titles:
+    - Smooth surface finish
+    - Accurate and repeatable
+    - Scalable
+    - Transparent
+
+benefit_descriptions:
+    - SLA creates parts with a smooth surface finish directly out the machine. This is ideal for applications that require a flawless finish, and also helps reduce finishing time, since parts can easily be sanded, polished and painted.
+    - SLA printers can create accurate parts with repeatable dimensions. This is essential for functional applications, such engineering assemblies, jewelry casting masters, or custom dental products from a patient’s scan.
+    - Because of its repeatability and high speed, especially for derivative technololgies such as DLP and CLIP, SLA is a good mean to produce small to medium batches.
+    - SLA is the only process providing full transparency of the parts.
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - check-square-o
+    - envira
+    - chevron-up
+    - low-vision
+
+
+material_list:
+    - Tough Resin
+    - Durable Resin
+    - Flexible Resin
+    - High Temperature Resin
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 5 days
+    - $$
+    - 50 µm
+    - medium
+    - 1-1000

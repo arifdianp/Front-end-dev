@@ -1,0 +1,7 @@
+User-agent: *
+
+allow: /
+Disallow: /quick-quote1/
+Disallow: /quick-quote1/*
+
+Sitemap: https://prototype-in-asia.com/sitemap.xml

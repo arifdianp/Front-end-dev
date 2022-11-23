@@ -1,0 +1,58 @@
+file_name: 90_vacuum_casting
+
+short_name: Vacuum Casting
+long_name: Vacuum Casting
+type : plastic
+
+catch_phrase: Fast and Affordable
+# put the link of the picture you want as background
+# it needs to be high quality and free of rights
+background_image: quotation/img/technos/sls_background.jpg
+small_image_1: quotation/img/technos/vc-1.jpg
+small_image_2: quotation/img/technos/vc-2.jpg
+
+# general description of techno
+# you can go to the line in the text you add here, it will have no effect
+# to insert a line break that will be displayed on the site, put the character  \n  in the text
+# to highlight stuff in bold, surround your bold text with the two tags : <b> and </b>
+description: Vacuum Casting is a fast and cost-effective prototyping method for producing small numbers of highly accurate polyurethane prototype parts.
+    Characteristics and quality are comparable to the final product. Vaccum casting is typically used to produce small numbers (usually up to 20) of highly accurate polyurethane prototype parts.
+
+# list of benefits
+benefit_titles:
+    - Ideal for functional testing
+    - Versatile
+    - Low volume runs
+
+
+benefit_descriptions:
+    - The mould is made from silicone rubber, and the casting made by pouring resin into the mould in a vacuum chamber.
+        The result is a bubble free casting, ideal for highly accurate, functional plastic prototype parts in very fine detail which replicate patterns, dimensions, profiles and textures.
+    - Vacuum Casting can also produce parts with varying degrees of flexibility or rigidity, in a wide range of colours and materials – as well clear parts.
+    - Vacuum Casting is a rapid and cost-effective prototyping method for producing small numbers of highly accurate polyurethane prototype parts.
+
+
+
+# choose icons from this link: http://fontawesome.io/icons/
+benefit_icons:
+    - cube
+    - arrows
+    - cubes
+
+
+material_list:
+    - Polyurethane
+
+key_feature_titles:
+    - Lead time
+    - Cost
+    - Accuracy
+    - Geometrical complexity
+    - Recommended batch size
+
+key_feature_values:
+    - 10 days
+    - $$
+    - 50-100 µm
+    - medium
+    - 1-30

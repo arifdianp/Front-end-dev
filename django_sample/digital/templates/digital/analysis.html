@@ -1,0 +1,246 @@
+{%extends 'digital/base.html'%}
+{% load static %}
+{% load digital_filters %}
+{% load humanize %}
+{%block content%}
+
+        <div class="content">
+            {%if latest_upload and not latest_upload.finished %}
+            <div class="alert alert-info analysis-status">
+                <strong>Analysis running -</strong> Parts analysed: <span id="currently-analysed-part">{{latest_upload.finished_entries}}</span>
+                <div class="wave">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            {%endif%}
+            <div class="row" style="margin-bottom:15px">
+                <div class='col-xs-12'>
+                    <select class="form-control" name='analysis-catalogue' style="max-width:200px;margin-left:13px;display:inline-block;">
+                        <option value="all">All</option>
+                        {% for cata in catalogues %}
+                        <option value="{{cata.id}}" {%if cata == catalogue %}selected{%endif%}>{{cata.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="card" id="card_printability_analysis">
+                            <div class="header">
+                                <h4 class="title">Printability Prediction
+                                    <button class="btn btn-inverted export-analysis"  data-toggle="tooltip" data-placement="bottom" title="Export as CSV" style="font-size:2rem;border:none;float:right;margin-top:-8px;"><i class="fa fa-cloud-download"></i></button>
+                                    {%if user.is_admin%}
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#modalPrintabilityPrediction" style="float:right;margin-top:-8px;">Start</button>
+                                    {%endif%}
+                                </h4>
+                            </div>
+                            <div class="content">
+                                <div class="row text-center">
+                                    <a href="/digital/analysis/" style="color:#000">
+                                        <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Parts added in database">
+                                            <div class="title bg-grey">Total Parts</div>
+                                            <div class="result"><b>{{parts_sumup.parts_total}}</b></div>
+                                        </div>
+                                    </a>
+                                    
+                                    <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Type of the part was identified">
+                                        <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?identified=1">
+                                            <div class="title bg-blue">Identified</div>
+                                            <div class="result"><b>{{parts_sumup.parts_with_type}}</b></div>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                        
+                                    <div class="col-md-4 indicator {% if request.GET.printable %}active{%endif%}" data-toggle="tooltip" data-placement="bottom" title="Out of identified: Parts fitted to be produced with our supported technologies">
+                                        <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?printable=1">
+                                            <div class="title bg-green">Printable</div>
+                                            <div class="result"><b>{{parts_sumup.parts_with_final_card}}</b></div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                            
+                                <div class="alert alert-warning alert-filters" style="margin:10px 0 10px 0;">
+                                    <strong><i class='fa fa-warning'></i> Filters applied :</strong> <span class="filter-hr"></span>
+                                </div>
+                                
+                                <div class="row" style="margin-top:10px">
+                                    <h5 class="text-center">Part Types:</h5>
+                                    <div  id="partTypeBarChartContainer" style="max-height:245px;overflow-y:scroll;margin-bottom:20px;" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                                        <div id="partTypeBarChart" class="ct-chart"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h5 class="text-center">Appliances:</h5>
+                                    <div id="ApplianceFamilyPieChartContainer" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                                        <div id="ApplianceFamilyPieChart" class="ct-chart"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h5 class="text-center">Suited Technology:</h5>
+                                    <div id="TechnoMaterialDistribContainer" data-toggle="popover" data-trigger="" data-placement="top" data-content="-">
+                                        <div id="TechnoMaterialDistrib" class="ct-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="card" id="card_financial_analysis">
+                            <div class="header" style="border:none;">
+                                <h4 class="title">Financial Analysis
+                                    <i id="refresh-financial" class="fa fa-refresh" style="cursor:pointer"></i>
+                                    {%if user.is_admin%}
+                                    <!-- <button class="btn btn-inverted" data-toggle="modal" data-target="#modalFinancialSettings" style="font-size:2rem;border:none;float:right;margin-top:-8px;"><i class="fa fa-cog"></i></button> -->
+                                    <button class="btn btn-inverted export-analysis"   data-toggle="tooltip" data-placement="bottom" title="Export as CSV" style="font-size:2rem;border:none;float:right;margin-top:-8px;"><i class="fa fa-cloud-download"></i></button>
+                                    
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#modalFinancialPrediction" style="float:right;margin-top:-8px;">Start</button>
+                                    {%endif%}
+                                </h4>
+
+                            </div>
+                            <ul class="nav nav-tabs tabs-financial-analysis">
+                                <li class="active"><a data-toggle="tab" href="#obsolete-parts-analysis">Obsolete Parts</a></li>
+                                <li><a data-toggle="tab" href="#longtail-parts-analysis">Long Tail Parts</a></li>
+                                <li><a data-toggle="tab" href="#shortage-parts-analysis">Shortage Parts</a></li>
+                                <li data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="PEX are unavailability of the spare parts causing replacement of machines at customers"><a data-toggle="tab" href="#pex-parts-analysis">PEX Parts</a></li>
+                            </ul>
+                            <div class="content">
+                                <div class="tab-content">
+                                    <div id="obsolete-parts-analysis" class="tab-pane fade in active">
+                                        <div class="row text-center">
+                                            <div class="col-md-3 indicator {% if request.GET.restock %}active{%endif%}" data-toggle="tooltip" data-placement="bottom" title="Out of printable, obsolete parts that will need inventory refill within the next 5 years">
+                                                <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?restock=1">
+                                                    <div class="title bg-red">Restock</div>
+                                                    <div class="result"><b>{{parts_sumup.parts_out_in_5_y}}</b></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 indicator {% if request.GET.obsolete %}active{%endif%}" data-toggle="tooltip" data-placement="bottom" title="Parts financially viable to be produced by 3D printing">
+                                                <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?obsolete=1">
+                                                    <div class="title bg-blue">Financially viable</div>
+                                                    <div class="result"><b>{{parts_sumup.parts_positive_obsolete_analysis}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="alert alert-warning alert-filters alert-financial-section" style="margin:10px 0 10px 0;">
+                                            <strong><i class='fa fa-warning'></i> Filters applied :</strong> <span class="filter-hr"></span>
+                                        </div>
+                                        <div class="row text-center" style="margin-top:10px">
+                                            <form id="form_yearly_margin" method="post" enctype="multipart/form-data">
+                                                {%csrf_token%}
+
+                                                <div class="col-md-12">
+                                                    <button class="btn" type="submit">Compute Yearly Margin</button>
+                                                    <!-- <span>selling decrease rate: </span>
+                                                    <input class="form-control" type="number" min="0" max="100" required name="decrease-rate" value="10" style="display:inline-block;max-width:80px;"></input>&nbsp;% -->
+                                                </div>
+                                                <div class="col-md-12" style="display:flex;margin-top:10px;justify-content:center;">
+                                                    <div id="margin_5y" class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Potential additional margin reach thanks to 3D printing on obsolete parts for the next 5 years">
+                                                        <div class="title bg-green">5y Margin</div>
+                                                        <div class="result"><b>{{obsolete_margin_5y.total|floatformat:0|intcomma|add_currency:user}}</b></div>
+                                                        <!-- <div class="result" style="font-weight:bold;">--- $</div> -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row">
+                                            <div id="yearlyMarginBarChartContainer">
+                                                <div id="yearlyMarginBarChart" class="ct-chart" data-x-axis="" data-y-axis="" style="display:none;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="longtail-parts-analysis" class="tab-pane fade">
+                                        <div class="row text-center">
+                                            <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Parts financially viable to be produced by 3D printing">
+                                                <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?longtail=1">
+                                                    <div class="title bg-blue">Financially Viable</div>
+                                                    <div class="result"><b>{{parts_sumup.parts_positive_longtail_analysis}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-warning alert-filters alert-financial-section" style="margin:10px 0 10px 0;">
+                                            <strong><i class='fa fa-warning'></i> Filters applied :</strong> <span class="filter-hr"></span>
+                                        </div>
+                                        <div class="row text-center" style="margin-top:10px">
+                                            <div class="col-md-12" style="display:flex;margin-top:10px;justify-content:center;">
+                                                <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Potential cost reduction on long tails TCO thanks to 3D printing for the next 5 years">
+                                                    <div class="title bg-green">5y Savings</div>
+                                                    <div class="result"><b>{{longtail_margin_5y.total|floatformat:0|intcomma|add_currency:user}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="shortage-parts-analysis" class="tab-pane fade">
+                                        <div class="row text-center">
+                                            <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Parts financially viable to be produced by 3D printing">
+                                                <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?shortage=1">
+                                                    <div class="title bg-blue">Financially Viable</div>
+                                                    <div class="result"><b>{{parts_sumup.parts_positive_shortage_analysis}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-warning alert-filters alert-financial-section" style="margin:10px 0 10px 0;">
+                                            <strong><i class='fa fa-warning'></i> Filters applied :</strong> <span class="filter-hr"></span>
+                                        </div>
+                                        <div class="row text-center" style="margin-top:10px">
+                                            <div class="col-md-12" style="display:flex;margin-top:10px;justify-content:center;">
+                                                <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Savings that could have been made on shortages thanks to 3D printing">
+                                                    <div class="title bg-green">Savings</div>
+                                                    <div class="result"><b>{{shortage_margin.total|floatformat:0|intcomma|add_currency:user}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="pex-parts-analysis" class="tab-pane fade">
+                                        <div class="row text-center">
+                                            <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Parts financially viable to be produced by 3D printing">
+                                                <div data-toggle="popover" data-trigger="click" data-placement="left" data-content="-" data-parameter="?pex=1">
+                                                    <div class="title bg-blue">Financially Viable</div>
+                                                    <div class="result"><b>{{parts_sumup.parts_positive_pex_analysis}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-warning alert-filters alert-financial-section" style="margin:10px 0 10px 0;">
+                                            <strong><i class='fa fa-warning'></i> Filters applied :</strong> <span class="filter-hr"></span>
+                                        </div>
+                                        <div class="row text-center" style="margin-top:10px">
+                                            <div class="col-md-12" style="display:flex;margin-top:10px;justify-content:center;">
+                                                <div class="col-md-4 indicator" data-toggle="tooltip" data-placement="bottom" title="Savings that could have been made on PEX thanks to 3D printing">
+                                                    <div class="title bg-green">Savings</div>
+                                                    <div class="result"><b>{{pex_margin.total|floatformat:0|intcomma|add_currency:user}}</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{%endblock content%}
+
+{%block extrascript%}
+{%include 'digital/utils/modal-notif.html'%}
+{%include 'digital/utils/modal-printability-prediction.html'%}
+{%include 'digital/utils/modal-financial-prediction.html'%}
+{%include 'digital/utils/modal-financial-settings.html'%}
+<script type="text/javascript">
+var parts_with_type,parts_with_final_card,total_parts,appliance_fam_distrib,parttype_distrib,techno_material_distribvar; 
+{%if parts_sumup.parts_with_type %}parts_with_type = {{parts_sumup.parts_with_type}};{%endif%}
+{%if parts_sumup.parts_with_final_card %}parts_with_final_card = {{parts_sumup.parts_with_final_card}};{%endif%}
+{%if parts_sumup.parts_total %}total_parts = {{parts_sumup.parts_total}};{%endif%}
+appliance_fam_distrib={{appliance_fam_distrib|safe}};
+parttype_distrib={{parttype_distrib|safe}};
+techno_material_distrib={{techno_material_distrib|safe}};
+</script>
+<script src="{% static 'digital/js/analysis.js' %}?dev={% random_int %}"></script>
+{%endblock extrascript%}

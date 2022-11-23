@@ -1,0 +1,31 @@
+{% load digital_filters %}
+{%load static%}
+<div id="modalPrintabilityPrediction" class="modal fade modal-predictions" role="dialog">
+  <div class="modal-dialog">
+<!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-body">
+            <div>
+                <div><span class='ti-file' style="font-size:3rem;"></span></div>
+                <div><span>Upload a .CSV file with that format:</span></div>
+                <img src="{% static 'digital/img/csv/csv_example_part_prediction.jpg' %}" style="width:95%;"></img>
+                <form id="form_printability_analysis" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <input style="display:inline-block;max-width:240px;border:none;" class="form-control" type="file" name="file" accept=".csv">
+                    <div class="form-group">
+                      <label>Add parts to Catalogue</label>
+                      <select class="form-control" name="catalogue-id" style="max-width:200px;display:inline-block">
+                        {% for catalogue in catalogues %}
+                        <option value='{{catalogue.id}}'>{{catalogue.name}}</option>
+                        {%endfor%}
+                      </select>
+                    </div>
+                    <button class="btn" type="submit">Submit</button>
+                </form>
+            </div>
+      <!-- <input type="submit" class="btn btn-success" value="Save" name="_save">
+     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        </div>
+    </div>
+  </div>
+</div>
