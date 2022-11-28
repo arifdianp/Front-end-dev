@@ -2,10 +2,15 @@
 import {createSlice} from "@reduxjs/toolkit";
 // reselect to
 import {createSelector} from 'reselect';
+
+import axios from 'axios';
+
 //import action from api store
 import {apiReqBegin} from './api';
 //import moment for time calculation
 import moment from 'moment';
+
+
 
 
 const slice = createSlice({
@@ -47,7 +52,7 @@ const slice = createSlice({
 });
 
 //do not export this inner function to prevent unintentional usage in UI call
-const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugrequestfail} = slice.actions;
+export const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugrequestfail} = slice.actions;
 export default slice.reducer;
 
 
@@ -70,12 +75,24 @@ export const loadbugs = () => (dispatch, getState) => {
 };
 
 // Adding bug command exported to UI layer
-export const addbug = (bug) => apiReqBegin({
-  url: '/bugs',
-  method: 'post',
-  data: bug,
-  onSuccess: ADD.type
-});
+export const addbug = (bug) => {
+  try
+  {
+    const response = axios.post(url, bug);
+    dispatch(ADD(bug));
+  }
+  catch(error)
+  {
+    dispatch({type: 'error'});
+  }
+};
+
+// export const addbug = (bug) => apiReqBegin({
+//   url: '/bugs',
+//   method: 'post',
+//   data: bug,
+//   onSuccess: ADD.type
+// });
 
 export const solvebug = (id) => apiReqBegin({
   url:'/bugs' + '/' + id,
