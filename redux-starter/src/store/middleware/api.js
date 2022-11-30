@@ -4,18 +4,22 @@ import axios from "axios";
 import * as actions from '../api';
 
 //if use await action must be async
-const api = store => next => async action =>{
+const api = store => next => async (action) =>
+{
   if(action.type !== actions.apiReqBegin.type)
+  {
     return next(action);
+  }
 
   const {url, method, data, onStart, onSuccess, onError} = action.payload;
 
   if(onStart)
     store.dispatch({type: onStart});
 
-  next(action);
+   next(action);
 
-  try{
+  try
+  {
     //mockup calling api since it's mockup its imitated as strings.
     const response = await axios.request({
       baseURL: 'http://localhost:9001/api/',
@@ -31,7 +35,8 @@ const api = store => next => async action =>{
     if(onSuccess)
       store.dispatch({type: onSuccess, payload: response.data});
   }
-  catch(error){
+  catch(error)
+  {
     store.dispatch(actions.apiReqFailed(error.message));
 
     //specific failure action

@@ -16,4 +16,18 @@ const store = configureStore({
   ]
 });
 
+function configStore() {
+  return configureStore({
+    reducer,
+    middleware: [
+      ...getDefaultMiddleware(),
+      //logger({destination: "console"}),
+      func,
+      toast,
+      api
+    ]
+  });
+}
+
 export default store;
+export {configStore};

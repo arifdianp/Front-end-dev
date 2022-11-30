@@ -6,11 +6,9 @@ import {createSelector} from 'reselect';
 import axios from 'axios';
 
 //import action from api store
-import {apiReqBegin} from './api';
+import {apiReqBegin, apiReqFailed} from './api';
 //import moment for time calculation
 import moment from 'moment';
-
-
 
 
 const slice = createSlice({
@@ -56,17 +54,18 @@ export const {ADD, SOLVED, REMOVE, assigntoUser, bugreceived, bugrequested, bugr
 export default slice.reducer;
 
 
-
 //action creators
 // load the bugs from API
-export const loadbugs = () => (dispatch, getState) => {
+export const loadbugs = () => async (dispatch, getState) =>
+{
   const time_record = getState().entities.bugs.lastFetch;
   const time_difference = moment().diff(moment(time_record), 'minutes');
   if(time_difference < 10) return;
 
-  dispatch(
+  return await dispatch(
     apiReqBegin({
       url: '/bugs',
+      method: 'get',
       onStart: bugrequested.type,
       onSuccess: bugreceived.type,
       onError: bugrequestfail.type
@@ -75,31 +74,38 @@ export const loadbugs = () => (dispatch, getState) => {
 };
 
 // Adding bug command exported to UI layer
-export const addbug = (bug) => {
+export const addbug = bug => async dispatch => {
   try
   {
-    const response = axios.post(url, bug);
-    dispatch(ADD(bug));
+    await dispatch(apiReqBegin({
+      url: '/bugs',
+      method: 'post',
+      data: bug,
+      onSuccess: ADD.type
+    }));
   }
   catch(error)
   {
-    dispatch({type: 'error'});
+    dispatch(apiReqFailed(error.message));
   }
 };
 
-// export const addbug = (bug) => apiReqBegin({
-//   url: '/bugs',
-//   method: 'post',
-//   data: bug,
-//   onSuccess: ADD.type
-// });
-
-export const solvebug = (id) => apiReqBegin({
-  url:'/bugs' + '/' + id,
-  method: 'patch',
-  data: {resolved: true},
-  onSuccess: SOLVED.type
-});
+//mark bug with specific id as solved
+export const solvebug = id => async dispatch => {
+  try
+  {
+    await dispatch(apiReqBegin({
+      url:'/bugs' + '/' + id,
+      method: 'patch',
+      data: {resolved: true},
+      onSuccess: SOLVED.type
+    }));
+  }
+  catch(error)
+  {
+    dispatch(apiReqFailed(error.message));
+  }
+};
 
 export const assignBugtouser = (bugID, userID) => apiReqBegin({
   url:'/bugs' + '/' + bugID,
